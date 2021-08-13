@@ -7,7 +7,7 @@
 const aws = require('aws-sdk');
 
 // Import paginate function
-const { paginate } = require('./Paginate');
+const { paginate } = require('./paginate');
 
 class AwsOrgNode {
   /**

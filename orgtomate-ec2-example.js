@@ -4,10 +4,10 @@
 'use strict';
 
 // Require the Orgtomate library
-const orgtomate = require('./Orgtomate');
+const orgtomate = require('./orgtomate');
 
 // Import paginate function
-const { paginate } = require('./Paginate');
+const { paginate } = require('./paginate');
 
 // Require the AWS SDK
 const aws = require('aws-sdk');
@@ -36,8 +36,13 @@ if (process.env.REGIONS) {
 const target = null;
 const recursive = true;
 
+const die = (error) => {
+  console.error(error);
+  process.exit(1);
+};
+
 // Main handler function
-exports.handler = async () => {
+const execute = exports.handler = async () => {
   try {
     // Define the function payload we will send to orgtomate to be
     // executed for each account in the AWS Organization
@@ -121,15 +126,10 @@ exports.handler = async () => {
   }
 };
 
-const die = (error) => {
-  console.error(error);
-  process.exit(1);
-};
-
 // If executing from the CLI, run the handler function
 if (require.main === module) {
   try {
-    exports.handler();
+    execute();
   } catch (error) {
     die(error);
   }

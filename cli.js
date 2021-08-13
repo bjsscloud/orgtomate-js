@@ -5,8 +5,8 @@
 
 const aws = require('aws-sdk');
 const yargs = require('yargs');
-const { paginate } = require('./Paginate');
-const orgtomate = require('./Orgtomate');
+const { paginate } = require('./paginate');
+const orgtomate = require('./orgtomate');
 const { serialize, deserialize } = require('v8');
 
 const awsRegion = process.env.AWS_REGION;

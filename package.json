@@ -35,5 +35,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/bjsscloud/orgtomate-js.git"
+  },
+  "bin": {
+    "orgtomate": "./cli.js"
   }
 }

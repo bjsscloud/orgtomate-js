@@ -7,10 +7,10 @@
 const aws = require('aws-sdk');
 
 // Import AwsOrgNode Class
-const AwsOrgNode = require('./AwsOrgNode');
+const AwsOrgNode = require('./aws-org-node');
 
 // Import paginate function
-const { paginate } = require('./Paginate');
+const { paginate } = require('./paginate');
 
 // The function that performs the assume role
 // per account and calls the function payload
