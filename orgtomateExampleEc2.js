@@ -1,18 +1,13 @@
 #!/usr/bin/env node
 // vim: set syntax=javascript tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
 
-////////////////////
-// INITIALISATION //
-////////////////////
-
 'use strict';
 
 // Require the Orgtomate library
 const orgtomate = require('./Orgtomate');
 
-// Import helper functions
-const { asyncForEach, die, paginate } = require('./Helper');
-Array.prototype.asyncForEach = asyncForEach;
+// Import paginate function
+const { paginate } = require('./Paginate');
 
 // Require the AWS SDK
 const aws = require('aws-sdk');
@@ -124,6 +119,11 @@ exports.handler = async () => {
   } catch (error) {
     throw error;
   }
+};
+
+const die = (error) => {
+  console.error(error);
+  process.exit(1);
 };
 
 // If executing from the CLI, run the handler function

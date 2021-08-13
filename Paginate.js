@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 // vim: set syntax=javascript tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
 
-//////////////////////
-// HELPER FUNCTIONS //
-//////////////////////
 'use strict';
 
 // Declare a helper function for getting paginated results from
@@ -127,31 +124,12 @@ const paginate = async (config) => {
   }
 };
 
-// Declare a helper function to iterate Arrays members
-// without hideous async issue like the lambda exiting before
-// the for loop is complete
-//
-// Usage:
-//   await <Array Object>.asyncForEach(async (<iterator variable>) => {
-//     <Do something, making use of <iterator variable>
-//   })
-async function asyncForEach (iteratorFunction) {
-  let indexer = 0;
-  for (const data of this) {
-    await iteratorFunction(data, indexer);
-    indexer++;
-  }
-}
+module.exports = { getPaginatedResults, paginate };
 
-//.catch((error) => die(error));
 const die = (error) => {
   console.error(error);
   process.exit(1);
 };
-
-module.exports = { getPaginatedResults, paginate, asyncForEach, die };
-// Remember to bind the helper function to Array objects
-// Array.prototype.asyncForEach = asyncForEach;
 
 const example = async () => {
   const aws = require('aws-sdk');

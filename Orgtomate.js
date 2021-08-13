@@ -1,23 +1,16 @@
 #!/usr/bin/env node
 // vim: set syntax=javascript tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
 
-////////////////////
-// INITIALISATION //
-////////////////////
-
 'use strict';
 
 // Require the AWS SDK
 const aws = require('aws-sdk');
+
+// Import AwsOrgNode Class
 const AwsOrgNode = require('./AwsOrgNode');
 
-// Import helper functions
-const { asyncForEach, die, paginate } = require('./Helper');
-Array.prototype.asyncForEach = asyncForEach;
-
-////////////////////
-// MAIN FUNCTIONS //
-////////////////////
+// Import paginate function
+const { paginate } = require('./Paginate');
 
 // The function that performs the assume role
 // per account and calls the function payload
@@ -167,6 +160,11 @@ const orgtomate = async (functionPayload, roleConfig, target = null, recursive =
 };
 
 module.exports = orgtomate;
+
+const die = (error) => {
+  console.error(error);
+  process.exit(1);
+};
 
 const example = async () => {
   const roleDurationSeconds = process.env.ROLE_DURATION_SECONDS || 900;

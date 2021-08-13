@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 // vim: set syntax=javascript tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
+
 'use strict';
 
 // Require the AWS SDK
 const aws = require('aws-sdk');
 
-// Import helper functions
-const { die, paginate } = require('./Helper');
+// Import paginate function
+const { paginate } = require('./Paginate');
 
-/** @class AwsOrgNode representing an AWS Organizations Organization Tree Node */
 class AwsOrgNode {
-  /** 
-   * @public 
-   * @description {Array} AwsOrgNode Objects that are Children of this Object
+  /**
+   * @public
+   * @description AwsOrgNode Objects that are Children of this Object
+   * @type AwsOrgNode[]
    */
   Children = [];
 
@@ -25,6 +26,7 @@ class AwsOrgNode {
    * which is used in place of the constructor
    *
    * @constructor
+   * @classdesc AwsOrgNode representing an AWS Organizations Organization Tree Node
    * @returns {AwsOrgNode} Returns a placeholder AwsOrgNode object
    */
   constructor () {}
@@ -47,6 +49,7 @@ class AwsOrgNode {
    * @static
    * @async
    * @summary async pseudo-constructor for the AwsOrgNode class
+   * @example const awsOrg = await AwsOrgNode.init(org)
    * @param {AWS.Organizations} org An AWS Organizations Service Interface Object from the AWS SDK
    * @param {Object} data An object containing initialisation data
    * @param {string} data.nodetype The nodetype of the AwsOrgNode: [ROOT|ORGANIZATIONAL_UNIT|ACCOUNT]. Default: 'ROOT'
@@ -339,6 +342,7 @@ class AwsOrgNode {
   /**
    * @function getAccount
    * @description Get an ACCOUNT AwsOrgNode Object that is a child of this AwsOrgNode, or optionally of any descendants as well
+   * @param {string} id Id property of the AwsOrgNode Object to ge
    * @param {boolean} [recursive=false] Recurse descendants or just search immediate children
    * @returns {AwsOrgNode} An ACCOUNT AwsOrgNode Object
    */
@@ -387,6 +391,7 @@ class AwsOrgNode {
   /**
    * @function toTree
    * @description A string representation of the tree of AwsOrgNodes beneath this one
+   * @param {number} level The current depth of this node in a recursive toTree call
    * @returns {string} Multiline string representation of an AwsOrgNode tree
    */
   toTree = (level = 0) => {
@@ -402,6 +407,11 @@ class AwsOrgNode {
  * Export the AwsOrgNode Class
  */
 module.exports = AwsOrgNode;
+
+const die = (error) => {
+  console.error(error);
+  process.exit(1);
+};
 
 /**
  * @function example

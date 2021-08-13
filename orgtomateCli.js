@@ -5,7 +5,7 @@
 
 const aws = require('aws-sdk');
 const yargs = require('yargs');
-const { die, paginate } = require('./Helper');
+const { paginate } = require('./Paginate');
 const orgtomate = require('./Orgtomate');
 const { serialize, deserialize } = require('v8');
 
@@ -122,6 +122,11 @@ const options = yargs
     return assert;
   })
   .argv;
+
+const die = (error) => {
+  console.error(error);
+  process.exit(1);
+};
 
 const execute = async () => {
   try {
@@ -361,6 +366,7 @@ const execute = async () => {
     throw error;
   }
 };
+
 // If executing from the CLI, run the execute function
 if (require.main === module) {
   try {
