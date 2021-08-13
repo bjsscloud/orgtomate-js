@@ -49,7 +49,8 @@ class AwsOrgNode {
    * @static
    * @async
    * @summary async pseudo-constructor for the AwsOrgNode class
-   * @example const awsOrg = await AwsOrgNode.init(org)
+   * @example const { AwsOrgNode } = require('orgtomate'); const org = new aws.Organizations({region: 'us-east-1', maxRetries: 100}); const awsOrg = await AwsOrgNode.init(org); console.log(awsOrg.toTree());
+   * @example e=async()=>{const {AwsOrgNode}=require('.');console.log((await AwsOrgNode.init(new (require('aws-sdk').Organizations)({region:'us-east-1',maxRetries:100}))).toTree());};e();
    * @param {AWS.Organizations} org An AWS Organizations Service Interface Object from the AWS SDK
    * @param {Object} data An object containing initialisation data
    * @param {string} data.nodetype The nodetype of the AwsOrgNode: [ROOT|ORGANIZATIONAL_UNIT|ACCOUNT]. Default: 'ROOT'
@@ -395,7 +396,7 @@ class AwsOrgNode {
    * @returns {string} Multiline string representation of an AwsOrgNode tree
    */
   toTree = (level = 0) => {
-    let ret = '- '.repeat(level) + this;
+    let ret = '- '.repeat(level) + this.tostring();
     this.Children.forEach((child) => {
       ret += '\n' + child.toTree(level + 1);
     });
