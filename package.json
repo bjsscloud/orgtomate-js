@@ -1,11 +1,11 @@
 {
   "name": "orgtomate",
-  "description": "Cross-Organization CLIs for AWS Organizations",
+  "description": "AWS Organizations Automation Tooling",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "dependencies": {
-    "aws-sdk": "latest",
-    "yargs": "latest"
+    "aws-sdk": ">=2.0.0 <3",
+    "yargs": "17.1.0"
   },
   "scripts": {
     "lint": "eslint --cache .",
@@ -21,11 +21,11 @@
     "eslint-nibble": "latest",
     "eslint-plugin-babel": "latest",
     "eslint-plugin-import": "latest",
-    "jsdoc": "3.6.7",
+    "jsdoc": ">= 3.6.7",
     "style-loader": "latest"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">= 0.12"
   },
   "os": [
     "darwin",
