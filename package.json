@@ -11,7 +11,8 @@
     "lint": "eslint --cache .",
     "nibble": "eslint-nibble --cache . --ext .js",
     "precommit": "npm run lint -s",
-    "test": "./test.sh"
+    "test": "./test.sh",
+    "doc": "./node_modules/jsdoc/jsdoc.js *.js"
   },
   "devDependencies": {
     "eslint": "latest",
@@ -20,6 +21,7 @@
     "eslint-nibble": "latest",
     "eslint-plugin-babel": "latest",
     "eslint-plugin-import": "latest",
+    "jsdoc": "3.6.7",
     "style-loader": "latest"
   },
   "engines": {
