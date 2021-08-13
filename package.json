@@ -1,0 +1,37 @@
+{
+  "name": "orgtomate",
+  "description": "Cross-Organization CLIs for AWS Organizations",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "latest",
+    "yargs": "latest"
+  },
+  "scripts": {
+    "lint": "eslint --cache .",
+    "nibble": "eslint-nibble --cache . --ext .js",
+    "precommit": "npm run lint -s",
+    "test": "./test.sh"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-config-recommended": "latest",
+    "eslint-loader": "latest",
+    "eslint-nibble": "latest",
+    "eslint-plugin-babel": "latest",
+    "eslint-plugin-import": "latest",
+    "style-loader": "latest"
+  },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjsscloud/orgtomate-js.git"
+  }
+}

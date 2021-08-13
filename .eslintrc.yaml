@@ -1,0 +1,75 @@
+# vim: set syntax=yaml tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab :
+extends:
+  - recommended/esnext
+  - recommended/esnext/style-guide
+  - recommended/node
+  - recommended/node/style-guide
+rules:
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+    - avoidEscape: true
+      allowTemplateLiterals: true
+  semi:
+    - error
+    - always
+  brace-style:
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  curly:
+    - error
+    - all
+  object-property-newline:
+    - off
+  arrow-body-style:
+    - error
+    - always
+    #- requireReturnForObjectLiteral: true
+  arrow-parens:
+    - error
+    - always
+  import/newline-after-import:
+    - off
+  newline-per-chained-call:
+    - off
+  no-multi-spaces:
+    - error
+    - ignoreEOLComments: true
+      exceptions:
+        Property: true
+        BinaryExpression: true
+        VariableDeclarator: true
+        ImportDeclaration: true
+  spaced-comment:
+    - off
+  template-curly-spacing:
+    - error
+    - never
+  import/no-commonjs:
+    - off
+  no-empty-function:
+    - off # Necessarily empty constructors for async classes
+  no-extend-native:
+    - error
+    - exceptions:
+        - 'Array'
+  no-invalid-this:
+    - off
+  no-process-exit:
+    - off
+  no-unused-vars:
+    - off # Seems to ignore varsIgnorePattern, not sure why
+    - varsIgnorePattern: "awsAccount"
+      args: all
+  no-useless-catch:
+    - off
+  no-useless-constructor:
+    - off
