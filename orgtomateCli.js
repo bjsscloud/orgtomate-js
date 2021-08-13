@@ -106,23 +106,20 @@ const options = yargs
     return true;
   })
   .check((argv) => {
+    let assert = true;
     if (argv.t) {
-      let assert = true;
       if (!argv.y) { assert = "ERROR: When using --orgtomate/-t: --recursive/-y must be set to 'true' or 'false'"; }
       if (!argv.n) { assert = 'ERROR: When using --orgtomate/-t: either --role-name/-n must be set or ROLE_NAME environment variable must be set'; }
       if (!argv.e) { assert = 'ERROR: When using --orgtomate/-t: either --external-id/-e must be set or ROLE_EXTERNAL_ID environment variable must be set'; }
       if (!argv.d) { assert = 'ERROR: When using --orgtomate/-t: either --session-duration/-d must be set or ROLE_DURATION_SECONDS environment variable must be set'; }
       if (!argv.x) { assert = 'ERROR: When using --orgtomate/-t: either --session-name/-x must be set or ROLE_SESSION_NAME environment variable must be set'; }
-      return assert;
-    } else {
-      if (argv.f) {
-        if (argv.f === 'accountids' || argv.f === 'accountnames' ) {
-          return 'accountids/accountnames output formats can only be used in conjuction with --orgtomate/-t';
-        }
+    } else if (argv.f) {
+      if (argv.f === 'accountids' || argv.f === 'accountnames') {
+        assert = 'accountids/accountnames output formats can only be used in conjuction with --orgtomate/-t';
       }
     }
 
-    return true;
+    return assert;
   })
   .argv;
 
@@ -304,8 +301,8 @@ const execute = async () => {
         return {
           region,
           results: regionalResult,
-        }
-      }
+        };
+      };
 
       const regionalTasks = regions.map(regionalPayload);
       results = await Promise.all(regionalTasks);
