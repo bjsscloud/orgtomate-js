@@ -1,0 +1,33 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "include": ["./*.ts"],
+  "compilerOptions": {
+    "target": "es2015",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false
+  },
+  "typedocOptions": {
+    "entryPoints": ["./"],
+    "out": "../docs",
+    "readme": "../README.md",
+    "disableOutputCheck": true,
+    "plugin": ["typedoc-plugin-pages-fork"],
+    "pages": {
+      "enableSearch": true,
+      "groups": [
+        {
+          "title": "Commands",
+          "pages": [
+            {
+              "title": "org",
+              "source": "src/docs/org.1.md",
+	      "output": "org"
+	    }
+	  ]
+	}
+      ]
+    },
+    "theme": "pages-plugin"
+  }
+}

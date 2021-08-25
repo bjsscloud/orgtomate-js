@@ -1,0 +1,4 @@
+{
+  "presets": [["latest-node", { "target": "current" }]]
+  "plugins": ["@babel/plugin-syntax-flow"]
+}

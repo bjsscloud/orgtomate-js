@@ -1,0 +1,424 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Orgtomate</title>
+	<meta name="description" content="Documentation for Orgtomate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Orgtomate</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="modules.html">Globals</a>
+				</li>
+			</ul>
+			<h1>Orgtomate</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#orgtomate-and-the-org-cli" id="orgtomate-and-the-org-cli" style="color: inherit; text-decoration: none;">
+					<h1>Orgtomate and the Org CLI</h1>
+				</a>
+				<p>Documentation hosted on <a href="https://bjsscloud.github.io/orgtomate-js">GitHub</a></p>
+				<p>Orgtomate is a TypeScript project designed to help AWS Organizations administrators perform tasks in parallel across multiple regions and accounts, as well as being a faster implementation of the basic functionality of the AWS CLI, since the AWS CLI is written in Python.</p>
+				<p>Orgtomate provides two core capabilities:</p>
+				<ul>
+					<li>A command line interface for running single commands in parallel across accounts and regions.</li>
+					<li>Importable libraries for:<ul>
+							<li>Executing a callback function in parallel across accounts and regions</li>
+							<li>Representing part or all of an AWS Organization or as a self-populating tree object</li>
+							<li>Automatically paginating any paginatable AWS API call using native pagination capabilities in the AWS SDK.</li>
+						</ul>
+					</li>
+				</ul>
+				<p>The Orgtomate package&#39;s executable code is distributed as minified (uglified) JavaScript for maximum execution speed, with associated TypeScript definition files and Source Maps. The source code is freely available under the MIT licence on GitHub: <a href="https://github.com/bjsscloud/orgtomate-js">https://github.com/bjsscloud/orgtomate-js</a></p>
+				<a href="#org---the-command-line-interface" id="org---the-command-line-interface" style="color: inherit; text-decoration: none;">
+					<h2>Org - The Command Line Interface</h2>
+				</a>
+				<p>The Orgtomate Command Line Interface (Org) is similar to the Official AWS CLI, but it exposes the raw nerves of the AWS SDK for JavaScript to the user. The commands and parameters are passed exactly as provided by the user to the AWS SDK and the results are only available in JSON format. This gives the user as much control as possible, and requires almost no maintenance in order to support the latest features and services in the SDK. Just as you might write <code>const r = new AWS.Route53({maxRetries: 10}); const z = await r.listHostedZones(maxItems=&quot;5&quot;);</code> in JavaScript, the equivalent parameters to Org are the same: <code>org Route53 listHostedZones -c maxRetries=10 -o maxItems=5</code>.</p>
+				<p>One of the most notable features of Org as a stanalone AWS CLI alternative is the ability to run commands in multiple AWS Regions simply by passing multiple regions as command line options. As these calls are executed in parallel, the additional time required to query multiple regions is negligable. Results are presented by default in flat format, producing results from all regions as if they had been one region. Alternatively results can be presented in an object indexed by region, or as a list of objects containing region and results keys.</p>
+				<p>Org also provides the advantage of integrating with the AwsOrgNode, Orgtomate and GetAwsResults modules in the Orgtomate package. They make it simple to run commands in multiple AWS accounts as well as multiple regions. GetAwsResults ensures that all paginatable calls are automatically paginated for you. Orgtomate provides the means to assume an Organizations Cross-Account role in each target account and run commands on them all in parallel, and AwsOrgNode provides an extension to the Organizations API, loading the Organization into a tree structure so that Organizations relationships can be easily determined, and in local execution rather than combinations of unique API calls.</p>
+				<p>The result is a single command that can seamlessly and efficiently gather information from or make changes to every account and region you control.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h3>Installation</h3>
+				</a>
+				<ul>
+					<li>Requires: NodeJS &gt;=12.0.0</li>
+				</ul>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm install -g orgtomate</span>
+<span style="color: #000000">or</span>
+<span style="color: #000000">$ yarn global add orgtomate</span>
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h3>Usage</h3>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">org &lt;service&gt; &lt;operation&gt; \</span>
+<span style="color: #000000">  [-c|--constructor-args &lt;key&gt;=&lt;value&gt; ...] \</span>
+<span style="color: #000000">  [-a|--operation-args &lt;key&gt;=&lt;value&gt; ...] \</span>
+<span style="color: #000000">  [-j|--args-as-json|--no-j|--no-args-as-json] \</span>
+<span style="color: #000000">  [-o|--orgtomate &lt;target&gt;] \</span>
+<span style="color: #000000">  [-y|--recurse|--no-y|--no-recurse] \</span>
+<span style="color: #000000">  [-r|--regions &lt;region&gt; ...] \</span>
+<span style="color: #000000">  [-k|--result-key &lt;key&gt;] \</span>
+<span style="color: #000000">  [-f|--format [flat|full|regions|accountids|accountnames]] \</span>
+<span style="color: #000000">  [-n|--role-name &lt;role-name&gt;] \</span>
+<span style="color: #000000">  [-e|--external-id &lt;external-id&gt;] \</span>
+<span style="color: #000000">  [-s|--duration-seconds &lt;seconds&gt;] \</span>
+<span style="color: #000000">  [-x|--session-name &lt;session-name&gt;] \</span>
+<span style="color: #000000">  [-d|--debug|--no-d|--no-debug]</span>
+</code></pre>
+				<p>Usage of the org command is detailed in the man page:</p>
+				<ul>
+					<li>Org man page (HTML) <a href="https://bjsscloud.github.io/orgtomate-js/pages/Commands/org.html">https://bjsscloud.github.io/orgtomate-js/pages/Commands/org.html</a></li>
+					<li>Org man page (Markdown) in Source: &lt;src/docs/org.1.md&gt;</li>
+					<li>Org man page (roff) in NPM Module: &lt;dist/man/org.1.gz&gt;</li>
+				</ul>
+				<p>The man page should be installed by default by npm or yarn, however both tools have recently suffered significant issues with installing man pages. If <code>man 1 org</code> does not work on your system, the manpage should still be available in its installation directory: e.g. <code>man /usr/lib/node_modules/orgtomate/dist/man/org.1.gz</code></p>
+				<a href="#the-modules" id="the-modules" style="color: inherit; text-decoration: none;">
+					<h2>The Modules</h2>
+				</a>
+				<p>As powerful as Org is as a CLI, the power is supplied by the modules in the Orgtomate package. They are designed to work together, and alone as utilities for AWS administrators and developers who use TypeScript or JavaScript to interact with AWS from custom applications and Lambda Functions.</p>
+				<p>All modules are designed to be compatible with the latest version of the AWS SDK for JavaScript version 2. The newly-GA version 3 SDK is a significant change in design approach, and will take some time to adapt to once it is fully adopted and supported by all services. There are some details that may present a challenge to the design of Orgtomate.</p>
+				<p>All modules are documented using typedoc, to the TSDoc standard, and as such the most detailed documentation is available on-line in HTML format: <a href="https://bjsscloud.github.io/orgtomate-js/modules.html">https://bjsscloud.github.io/orgtomate-js/modules.html</a>, generated from the documentation in the source code.</p>
+				<a href="#index" id="index" style="color: inherit; text-decoration: none;">
+					<h3>Index</h3>
+				</a>
+				<p>While it is recommended that individual types, interfaces, classes and functions are imported as they are required, an index module is provided that re-exports all public items from all modules:</p>
+				<a href="#usage-1" id="usage-1" style="color: inherit; text-decoration: none;">
+					<h4>Usage</h4>
+				</a>
+				<a href="#typescript" id="typescript" style="color: inherit; text-decoration: none;">
+					<h5>TypeScript</h5>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #0000FF">*</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #001080">Orgtomate</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;orgtomate&#039;</span><span style="color: #000000">;</span>
+</code></pre>
+				<a href="#javascript" id="javascript" style="color: inherit; text-decoration: none;">
+					<h5>JavaScript</h5>
+				</a>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">Orgtomate</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;orgtomate&#039;</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#exports" id="exports" style="color: inherit; text-decoration: none;">
+					<h5>Exports</h5>
+				</a>
+				<ul>
+					<li>AwsOrgNode<ul>
+							<li>Class &amp; Interface: AwsOrgNode</li>
+						</ul>
+					</li>
+					<li>GetAwsResults<ul>
+							<li>Function: getAwsResults</li>
+							<li>Type: PaginationMetadata</li>
+						</ul>
+					</li>
+					<li>Orgtomate<ul>
+							<li>Class &amp; Interface: ProcessableAccount</li>
+							<li>FUnction: orgtomate</li>
+							<li>Type: AssumeRoleConfig</li>
+							<li>Type: AsyncCallbackFunction</li>
+							<li>Type: RoleCredentials</li>
+							<li>Type: RoleInfo</li>
+						</ul>
+					</li>
+				</ul>
+				<a href="#awsorgnode" id="awsorgnode" style="color: inherit; text-decoration: none;">
+					<h3>AwsOrgNode</h3>
+				</a>
+				<p>The purpose of this module is to provide a class and interface that describe an AwsOrgNode object. This object represents an AWS Organization Root, Organizational Unit or Account, and a tree of Child objects of the same type. The normal use case is to initialise a Root or Organizational Unit AwsOrgNode, which will recursively initialise every other AwsOrgNode beneath it in the AWS Organizations tree.</p>
+				<p>The result will be a tree of objects whose information and relationships can be queried in-memory without additional API calls. The methods implemented by AwsOrgNode permit the inference of relationships between nodes that might normally require more than one chained call to the Organiztions API with custom parameters. For example, retrieving all of the parent Organiztional Units of an AWS Account up to an including, or not including, the Root.</p>
+				<p>Because AWS API calls must usually be made in async functions, it&#39;s implausible to initialise an AwsOrgNode object in it&#39;s constructor. Therefore AwsOrgNode provides a static initialisation function that returns an async result. It is expected that a new AwsOrgNode object will be created directly by this static function and not by the constructor. One calls AwsOrgNode.init() and the result will be an AwsOrgNode object (or void).</p>
+				<p>Use of AwsOrgNode should be a choice that balance performance with utility. The larger the tree or subtree you are initialising, the longer the initialisation will take. Initialising a tree of thousands of AWS Accounts in hundreds of Organizational units might take tens of seconds and at least as many API calls as there are Organizational Units; however the value to the subsequent logic may make that investment worthwhile. As much effort as possible has been put into streamlining the initialisation process, using the listAccounts operation to save individual describeAccount calls for each nested account&#39;s data and not performing a describeOrganizationalUnit unless there is missing data from the constructor.</p>
+				<p>As an example of this choice, Orgtomate does not always initialise an AwsOrgNode. If the target is the Root of an AWS Organization and the recursive option is selected, Orgtomate will perform a listAccounts call and operate solely on the results of that call, as it is not necessary to initialise an AwsOrgNode tree to collect that information. Future improvements will further increase the logic in the targeting process to make maximum use of singular AWS Organizations operations, especially as new ones are made available, relying on AwsOrgNode only where a single method would replace multiple API calls or complex iteration.</p>
+				<p>Should a developer require any complex inference of AWS Organization relationships that are not fulfilled by the AWS API or AwsOrgNode, the AwsOrgNode object can be extended to provide additional methods or properties, as is done in Orgtomate to extend an AwsOrgNode into a ProcessableAccount.</p>
+				<a href="#export" id="export" style="color: inherit; text-decoration: none;">
+					<h4>Export</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #001080">static</span><span style="color: #000000"> </span><span style="color: #795E26">init</span><span style="color: #000000">(</span><span style="color: #001080">orgNode</span><span style="color: #000000">: </span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AwsOrgNode</span><span style="color: #000000">(), </span><span style="color: #001080">orgAccounts</span><span style="color: #000000">: </span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000">&gt; = []): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000">&gt;</span>
+</code></pre>
+				<a href="#usage-2" id="usage-2" style="color: inherit; text-decoration: none;">
+					<h4>Usage</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;orgtomate&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">awsOrg</span><span style="color: #000000">: </span><span style="color: #267F99">AwsOrgNode</span><span style="color: #000000"> | </span><span style="color: #267F99">void</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000">.</span><span style="color: #795E26">init</span><span style="color: #000000">().</span><span style="color: #795E26">catch</span><span style="color: #000000">((</span><span style="color: #001080">error</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> { </span><span style="color: #AF00DB">throw</span><span style="color: #000000"> </span><span style="color: #001080">error</span><span style="color: #000000">; });</span>
+</code></pre>
+				<a href="#getawsresults" id="getawsresults" style="color: inherit; text-decoration: none;">
+					<h3>GetAwsResults</h3>
+				</a>
+				<p>This module provides a function designed to replace any call to the AWS API through an AWS Service constructor an operation. It is not a universal panacea, but should be usable in almost any regular use case. Instead of importing the AWS SDK, setting constructor parameters, creating an AWS Service object, setting operation parameters, awaiting a promise to return a single page of results, and then repeating the call based on per-service custom tokenisation data, you can simply make one call to the getAwsResults function. You pass strings for the AWS Service and Operation you wish to perform, config objects for custom parameters for each of them, and an optional results key.</p>
+				<p>The function will do the rest of the work. It will configure the constructor, set up an AWS Request object for the Service, create a recursive on-success event listener and then send the request. The event listener will, on receipt of a successful result, make use of the hasNextPage() and nextPage() functions of the resulting AWS Response object to create a new Request with its own on-success event listener for another results page and repeat until none remain. This whole process is wrapped in a Promise, such that the whole function can be awaited, providing the same async/await interface to requests that JavaScript deveopers have come to rely on.</p>
+				<p>Whether a resultKey is specified or not, all results from all pages of a paginated result will be concatenated together. Each key in a result will contain all of the values produced for that key in each Request. The specification of a resultKey will select only one key in each response, and concatenate only those results, which for most AWS API calls is all of the information required.</p>
+				<p>Along with the results from the AWS Response, getAwsResults adds a key called PaginationMetadata which is an Object containing three properties: Pageable, Paged and Pages, containing information as to whether the result was pageable, whether paging was necessary, and how many pages made up the result.</p>
+				<a href="#export-1" id="export-1" style="color: inherit; text-decoration: none;">
+					<h4>Export</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">getAwsResults</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span>
+<span style="color: #000000">  </span><span style="color: #001080">service</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">operation</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">clientParams</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000"> = {},</span>
+<span style="color: #000000">  </span><span style="color: #001080">operationParams</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000"> = {},</span>
+<span style="color: #000000">  </span><span style="color: #001080">resultKey</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> | </span><span style="color: #267F99">undefined</span><span style="color: #000000"> = </span><span style="color: #0000FF">undefined</span><span style="color: #000000">,</span>
+<span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #001080">any</span><span style="color: #000000">&gt;</span>
+</code></pre>
+				<a href="#usage-3" id="usage-3" style="color: inherit; text-decoration: none;">
+					<h4>Usage</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getAwsResults</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;orgtomate&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">hostedZones</span><span style="color: #000000">: </span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #267F99">any</span><span style="color: #000000">&gt; = </span><span style="color: #795E26">getAwsResults</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Route53&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;listHostedZones&#039;</span><span style="color: #000000">, {}, {}, </span><span style="color: #A31515">&#039;HostedZones&#039;</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#orgtomate" id="orgtomate" style="color: inherit; text-decoration: none;">
+					<h3>Orgtomate</h3>
+				</a>
+				<p>This module provides a function that takes a starting point in an AWS Organization, and a callback function, and runs the callback against every Child AWS Account in the tree, recursively in or not.</p>
+				<p>The callback function receives two parameters, a credentials object and ProcessableAccount (extends AwsOrgNode). </p>
+				<p>The credentials object contains credentials in the form expected by an AWS Service constructor, unique for each execution of the callback across each AWS Account being Orgtomated. The credentials object can be passed directly into a constructor (or to getAwsResults) to make calls using the assumed role for the target account.</p>
+				<p>The ProcessableAccount object is an AwsOrgNode object containing information about the AWS Account being Orgtomated so that values such as its name and AWS Account ID can be easily referenced in the function. The object also contains an AssumeRoleConfig object containing information about the role that was assumed in the account, and a copy of the AsyncCallbackFunction itself.</p>
+				<p>The function returns a Promise (that should be awaited) containing an Array. The Array contains one result object for each of the callbacks that ran in the target accounts. Any failres to assume a role or execute a function will not be treated as fatal. An error will be printed to console.error, and the null result will be chomped from the resulting Array such that the Array only contains results from successful executions.</p>
+				<p>Orgtomate is entirely agnostic of the object that is returned by the callback, therefore the developer may return any suitable object in the callback, and then process the Array of objects in any appropriate manner. It is advisable that the result object contain at least the AWS Account ID from the ProcessableAccount object so that each result block may uniquely identify the account it was executed in.</p>
+				<p>Orgtomate does not provide native capabilities for repeating the callback in multiple regions. This is not Orgtomate&#39;s responsibility, nor would it be appropriate in a generic impementation since so many AWS services are not regional. If the developer wishes to parallelise callback execution in multiple regions, it can be achieved easily in the same manner as done by Org and in the example below.</p>
+				<a href="#export-2" id="export-2" style="color: inherit; text-decoration: none;">
+					<h4>Export</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">orgtomate</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span>
+<span style="color: #000000">  </span><span style="color: #001080">asyncCallback</span><span style="color: #000000">: </span><span style="color: #267F99">AsyncCallbackFunction</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">roleInfo</span><span style="color: #000000">: </span><span style="color: #267F99">RoleInfo</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">targetId</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> | </span><span style="color: #267F99">null</span><span style="color: #000000"> = </span><span style="color: #0000FF">null</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">recursive</span><span style="color: #000000"> = </span><span style="color: #0000FF">false</span><span style="color: #000000">,</span>
+<span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #001080">any</span><span style="color: #000000">&gt;&gt;</span>
+</code></pre>
+				<a href="#usage-4" id="usage-4" style="color: inherit; text-decoration: none;">
+					<h4>Usage</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">roleInfo</span><span style="color: #000000">: </span><span style="color: #267F99">RoleInfo</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #001080">roleName</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">sessionName:</span><span style="color: #000000"> </span><span style="color: #001080">roleSessionName</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">externalId:</span><span style="color: #000000"> </span><span style="color: #001080">roleExternalId</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">durationSeconds:</span><span style="color: #000000"> </span><span style="color: #001080">roleDurationSeconds</span><span style="color: #000000">,</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">asyncCallback</span><span style="color: #000000">: </span><span style="color: #267F99">AsyncCallbackFunction</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span><span style="color: #001080">credentials</span><span style="color: #000000">, </span><span style="color: #001080">awsAccount</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">arn</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getAwsResults</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;STS&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;getCallerIdentity&#039;</span><span style="color: #000000">, { </span><span style="color: #001080">credentials</span><span style="color: #000000"> }, {}, </span><span style="color: #A31515">&#039;Arn&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">catch</span><span style="color: #000000">((</span><span style="color: #001080">error</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> { </span><span style="color: #AF00DB">throw</span><span style="color: #000000"> </span><span style="color: #001080">error</span><span style="color: #000000">; });</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">arn</span><span style="color: #000000">;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">results</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">orgtomate</span><span style="color: #000000">(</span><span style="color: #001080">asyncCallback</span><span style="color: #000000">, </span><span style="color: #001080">roleInfo</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Root&#039;</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">).</span><span style="color: #795E26">catch</span><span style="color: #000000">((</span><span style="color: #001080">error</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> { </span><span style="color: #AF00DB">throw</span><span style="color: #000000"> </span><span style="color: #001080">error</span><span style="color: #000000">; });</span>
+</code></pre>
+				<a href="#parallelised-regions-example" id="parallelised-regions-example" style="color: inherit; text-decoration: none;">
+					<h4>Parallelised Regions Example</h4>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">orgtomateCallback</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span><span style="color: #001080">credentials</span><span style="color: #000000">: </span><span style="color: #267F99">RoleCredentials</span><span style="color: #000000">, </span><span style="color: #001080">awsAccount</span><span style="color: #000000">: </span><span style="color: #267F99">ProcessableAccount</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #267F99">RegionalPayloadResult</span><span style="color: #000000">&gt;&gt; </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">regionalPayload</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span><span style="color: #001080">region</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #267F99">RegionalPayloadResult</span><span style="color: #000000">&gt; </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">regionalClientParams</span><span style="color: #000000"> = { </span><span style="color: #001080">credentials</span><span style="color: #000000">, </span><span style="color: #001080">region</span><span style="color: #000000"> };</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">awsResults</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getAwsResults</span><span style="color: #000000">(</span><span style="color: #001080">service</span><span style="color: #000000">, </span><span style="color: #001080">operation</span><span style="color: #000000">, </span><span style="color: #001080">regionalClientParams</span><span style="color: #000000">, </span><span style="color: #001080">operationParams</span><span style="color: #000000">, </span><span style="color: #001080">resultKey</span><span style="color: #000000">).</span><span style="color: #795E26">catch</span><span style="color: #000000">((</span><span style="color: #001080">error</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> { </span><span style="color: #AF00DB">throw</span><span style="color: #000000"> </span><span style="color: #001080">error</span><span style="color: #000000">; });</span>
+
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">regionalPayloadResult</span><span style="color: #000000">: </span><span style="color: #267F99">RegionalPayloadResult</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">      </span><span style="color: #001080">accountId:</span><span style="color: #000000"> </span><span style="color: #001080">awsAccount</span><span style="color: #000000">.</span><span style="color: #001080">Id</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">accountName:</span><span style="color: #000000"> </span><span style="color: #001080">awsAccount</span><span style="color: #000000">.</span><span style="color: #001080">Name</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">region</span><span style="color: #000000">,</span>
+<span style="color: #000000">      </span><span style="color: #001080">results:</span><span style="color: #000000"> </span><span style="color: #001080">awsResults</span><span style="color: #000000">,</span>
+<span style="color: #000000">    };</span>
+
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">regionalPayloadResult</span><span style="color: #000000">;</span>
+<span style="color: #000000">  };</span>
+
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">regionalTasks</span><span style="color: #000000"> = </span><span style="color: #001080">regions</span><span style="color: #000000">.</span><span style="color: #795E26">map</span><span style="color: #000000">(</span><span style="color: #001080">regionalPayload</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">regionalTaskResults</span><span style="color: #000000">: </span><span style="color: #267F99">Array</span><span style="color: #000000">&lt;</span><span style="color: #267F99">RegionalPayloadResult</span><span style="color: #000000">&gt; = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #267F99">Promise</span><span style="color: #000000">.</span><span style="color: #795E26">all</span><span style="color: #000000">(</span><span style="color: #001080">regionalTasks</span><span style="color: #000000">).</span><span style="color: #795E26">catch</span><span style="color: #000000">((</span><span style="color: #001080">error</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> { </span><span style="color: #AF00DB">throw</span><span style="color: #000000"> </span><span style="color: #001080">error</span><span style="color: #000000">; });</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">regionalTaskResults</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#paginate" id="paginate" style="color: inherit; text-decoration: none;">
+					<h4>Paginate</h4>
+				</a>
+				<p>There is an additional module that is not an official part of the package called Paginate. It is a deprecated version of GetAwsResults that uses a complex and incomplete approach to automatic AWS Response pagination, along with a semi-automatic mechanism requiring the user to provide pagination configuration for the service and operation. It has been left in the package for educational and reference purposes.</p>
+				<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+					<h2>Development</h2>
+				</a>
+				<p>This project uses: TypeScript, ESLint, typedoc, gulp, yarn, prettier and associated tool plugins for its development processes.</p>
+				<a href="#development-dependencies" id="development-dependencies" style="color: inherit; text-decoration: none;">
+					<h3>Development Dependencies</h3>
+				</a>
+				<p>Install development dependencies with yarn:</p>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm install -g yarn</span>
+<span style="color: #000000">$ yarn install</span>
+</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h3>Documentation</h3>
+				</a>
+				<p>All code is documented to the TSDoc standard, with the exception of @module and @includeDoc tags which are not defined in TSDoc, but are implementations in typedoc, the tool used to generate the documentation. typedoc existed before TSDoc, and therefore does not, or does not yet, completely adhere to the standard. The TSDoc syntax is validated in ESLint using the eslint-plugin-tsdoc plugin, but this is the only ESLint check that is a warning. This is because eslint-plugin-tsdoc does not permit individual rules or tags to be suppressed. All other ESLint checks are configured as &#39;error&#39; and will fail tests.</p>
+				<p>The typedoc options are configured in the source <code>tsconfig.json</code> file in the <code>src/</code> directory.</p>
+				<p>Documentation is built using gulp, and committed to the <code>docs/</code> directory in the repository for hosting on GitHub Pages.</p>
+				<pre><code class="language-bash"><span style="color: #000000">$ yarn doc</span>
+<span style="color: #000000">or</span>
+<span style="color: #000000">$ gulp doc</span>
+</code></pre>
+				<p><em>Test must pass for documentation to build!</em></p>
+				<p>The Org man page source is located at <code>src/docs/org.1.md</code> in Markdown formt. The typedoc-plugin-pages-fork plugin is used to incorporate the Org man page in the HTML documentation. This is a fork of typedoc-plugin-pages which does not yet support the latest software versions. Gulp also places the file <code>src/docs/_config.yml</code> in the documentation root which instructs GitHub pages&#39; <code>jekyll</code> not to ignore HTML pages beginning with an underscore character.</p>
+				<p>The Org man page is built from the <code>src/docs/org.1.md</code> Markdown file as part of the code compilation process using the gulp-marked-man plugin.</p>
+				<a href="#eslint" id="eslint" style="color: inherit; text-decoration: none;">
+					<h3>ESLint</h3>
+				</a>
+				<p>ESLint is configured for static code testing. All but eslint-plugin-tsdoc checks are configured as &#39;error&#39; and will fail the build if non-conformant. A number of existing standard rulesets have been included:</p>
+				<pre><code class="language-yaml"><span style="color: #800000">extends</span><span style="color: #000000">:</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">airbnb-base</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">eslint:recommended</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">plugin:@typescript-eslint/recommended</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">plugin:prettier/recommended</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">recommended/esnext</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">recommended/esnext/style-guide</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">recommended/node</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">recommended/node/style-guide</span>
+
+<span style="color: #800000">plugins</span><span style="color: #000000">:</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">&#039;@typescript-eslint&#039;</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">&#039;eslint-plugin-tsdoc&#039;</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">prettier</span>
+<span style="color: #000000">  - </span><span style="color: #0000FF">import</span>
+</code></pre>
+				<p>However a significant number of rules have been customised or disabled to meet either necessary requirements of the code or author style-preference. These rules and the full configuration can be found in the <code>.eslintrc</code> file in the project root.</p>
+				<a href="#eslint-nibble" id="eslint-nibble" style="color: inherit; text-decoration: none;">
+					<h4>eslint-nibble</h4>
+				</a>
+				<p>To ease development, eslint-nibble is used to manage linting failures one by one in an interactive format that will offer to automatically fix fixable violations so that the results can be compared individually.</p>
+				<ul>
+					<li><code>yarn nibble</code> will process all source files</li>
+					<li><code>yarn nibble-one &lt;path&gt;</code> will process an individual file</li>
+				</ul>
+				<a href="#build" id="build" style="color: inherit; text-decoration: none;">
+					<h3>Build</h3>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">$ yarn build</span>
+<span style="color: #000000">or</span>
+<span style="color: #000000">$ gulp build</span>
+</code></pre>
+				<p><em>Test must pass for source to compile!</em></p>
+				<p>Also <code>gulp build-all</code> is available for building source and documentation simultaneously for expediency, however normally documentation and code should be built separately. Code is built only for testing and packaging so that the module can be installed or published to NPM. Documentation must be rebuilt when documentation soure is modified in order for GitHub Pages to update.</p>
+				<a href="#continuous-integration" id="continuous-integration" style="color: inherit; text-decoration: none;">
+					<h3>Continuous Integration</h3>
+				</a>
+				<p>Currently the only automated pipeline is a GitHub Action for running CodeQL which includes security scanning results in the GitHub security tab, and in branch push feedback.</p>
+				<p>Implementing ESLint as an automated test on Pull Requests is an outstanding TODO.</p>
+				<a href="#publish" id="publish" style="color: inherit; text-decoration: none;">
+					<h3>Publish</h3>
+				</a>
+				<p>The NPM module name <code>orgtomate</code> is owned by Mike Peachey who is responsible for publishing releases.</p>
+				<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+					<h3>Contributing</h3>
+				</a>
+				<p>Please engage with this project via GitHub.</p>
+				<ul>
+					<li>Pull Requests: <a href="https://github.com/bjsscloud/orgtomate-js/pulls">https://github.com/bjsscloud/orgtomate-js/pulls</a></li>
+					<li>Issues: <a href="https://github.com/bjsscloud/orgtomate-js/issues">https://github.com/bjsscloud/orgtomate-js/issues</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Commands</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Commands/org.html">org</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/aws_org_node.html">aws-<wbr>org-<wbr>node</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/get_aws_results.html">get-<wbr>aws-<wbr>results</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/orgtomate.html">orgtomate</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/paginate.html">paginate</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+extends:
+  - airbnb-base
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+  - recommended/esnext
+  - recommended/esnext/style-guide
+  - recommended/node
+  - recommended/node/style-guide
+
+parser: '@typescript-eslint/parser'
+
+plugins:
+  - '@typescript-eslint'
+  - 'eslint-plugin-tsdoc'
+  - prettier
+  - import
+
+rules:
+  '@typescript-eslint/no-explicit-any':
+    - 'off'
+  '@typescript-eslint/no-redeclare':
+    - error
+  '@typescript-eslint/no-unused-vars':
+    - 'off'
+  array-bracket-spacing:
+    - error
+    - never
+  arrow-body-style:
+    - error
+    - always
+  arrow-parens:
+    - error
+    - always
+  babel/generator-star-spacing:
+    - 'off'
+  brace-style:
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  curly:
+    - error
+    - all
+  dot-notation:
+    - error
+    - allowPattern: ^api|operation|paginator|serviceId$
+  generator-star-spacing:
+    - error
+  import/extensions:
+    - error
+    - ignorePackages
+    - js: never
+      jsx: never
+      mjs: never
+      ts: never
+      tsx: never
+  import/newline-after-import:
+    - 'off'
+  import/no-namespace:
+    - 'off'
+  import/prefer-default-export:
+    - 'off'
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - unix
+  newline-per-chained-call:
+    - 'off'
+  no-await-in-loop:
+    - 'off'
+  no-console:
+    - 'off'
+  no-extra-parens:
+    - 'off'
+  no-invalid-this:
+    - 'off'
+  no-multi-spaces:
+    - error
+    - exceptions:
+        BinaryExpression: true
+        ImportDeclaration: true
+        Property: true
+        VariableDeclarator: true
+      ignoreEOLComments: true
+  no-param-reassign:
+    - error
+    - ignorePropertyModificationsFor:
+        - element
+      props: true
+  no-process-exit:
+    - 'off'
+  no-redeclare:
+    - 'off'
+  no-restricted-syntax:
+    - error
+    - message: >-
+        for..in loops iterate over the entire prototype chain, which is
+        virtually never what you want. Use Object.{keys,values,entries}, and
+        iterate over the resulting array.
+      selector: ForInStatement
+    - message: >-
+        Labels are a form of GOTO; using them makes code confusing and hard to
+        maintain and understand.
+      selector: LabeledStatement
+    - message: >-
+        `with` is disallowed in strict mode because it makes code impossible to
+        predict and optimize.
+      selector: WithStatement
+  no-sync:
+    - 'off'
+  no-underscore-dangle:
+    - 'off'
+  no-unused-vars:
+    - 'off'
+    - args: all
+      varsIgnorePattern: awsAccount
+  no-useless-catch:
+    - 'off'
+  object-curly-newline:
+    - 'off'
+  object-property-newline:
+    - 'off'
+  operator-linebreak:
+    - error
+    - after
+    - overrides: {}
+  quotes:
+    - error
+    - single
+    - allowTemplateLiterals: true
+      avoidEscape: true
+  semi:
+    - error
+    - always
+  spaced-comment:
+    - 'off'
+  strict:
+    - 'off'
+  template-curly-spacing:
+    - error
+    - never
+  tsdoc/syntax:
+    - warn # Irritatingly, this is our only way to ignore @inheritDoc not being an inline tag
+  valid-jsdoc:
+    - 'off'
+
+settings:
+  import/parsers:
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
+  import/resolver:
+    node:
+      extensions:
+        - .js
+        - .jsx
+        - .ts
+        - .tsx
+        - .json
+    typescript:
+      alwaysTryTypes: true
+      project: src

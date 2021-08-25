@@ -1,0 +1,957 @@
+[
+  {
+    "service": "ACMPCA",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "AlexaForBusiness",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Amplify",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "APIGateway",
+    "inputToken": "position",
+    "outputToken": "position"
+  },
+  {
+    "service": "ApiGatewayManagementApi",
+    "inputToken": null,
+    "outputToken": null 
+  },
+  {
+    "service": "ApiGatewayV2",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ApplicationAutoScaling",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ApplicationInsights",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "AppMesh",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "AppStream",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "AppSync",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Athena",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "AutoScaling",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "AutoScalingPlans",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Backup",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Batch",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Budgets",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Chime",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Cloud9",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CloudDirectory",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudFormation",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudFront",
+    "inputToken": "Marker",
+    "outputToken": "_dict[0]_.NextMarker"
+  },
+  {
+    "service": "CloudHSM",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudHSMV2",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudSearch",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "CloudSearchDomain",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "CloudTrail",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudWatch",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudWatchEvents",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CloudWatchLogs",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CodeBuild",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CodeCommit",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CodeDeploy",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CodePipeline",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CodeStar",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "CognitoIdentity",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CognitoIdentityServiceProvider",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CognitoSync",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Comprehend",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ComprehendMedical",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ConfigService",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Connect",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "CostExplorer",
+    "inputToken": "NextPageToken",
+    "outputToken": "NextPageToken"
+  },
+  {
+    "service": "CUR",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "DataPipeline",
+    "inputToken": "marker",
+    "outputToken": "marker"
+  },
+  {
+    "service": "DataSync",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "DAX",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "DeviceFarm",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "DirectConnect",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "DirectoryService",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Discovery",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "DLM",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "DMS",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "DocDB",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "DynamoDB",
+    "inputToken": "_uses_last_item_",
+    "outputToken": "_uses_last_item_"
+  },
+  {
+    "service": "DynamoDBStreams",
+    "inputToken": "_uses_last_item_",
+    "outputToken": "_uses_last_item_"
+  },
+  {
+    "service": "EC2",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "EC2InstanceConnect",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "ECR",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "ECS",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "EFS",
+    "inputToken": "Marker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "EKS",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "ElastiCache",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "ElasticBeanstalk",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ElasticTranscoder",
+    "inputToken": "PageToken",
+    "outputToken": "NextPageToken"
+  },
+  {
+    "service": "ELB",
+    "inputToken": "Marker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "ELBv2",
+    "inputToken": "Marker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "EMR",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "ES",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "EventBridge",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Firehose",
+    "inputToken": "_uses_last_item_",
+    "outputToken": "_uses_last_item_"
+  },
+  {
+    "service": "FMS",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ForecastQueryService",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ForecastService",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "FSx",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "GameLift",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Glacier",
+    "inputToken": "marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "GlobalAccelerator",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Glue",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Greengrass",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "GroundStation",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "GuardDuty",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Health",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "IAM",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "ImportExport",
+    "inputToken": "Marker",
+    "outputToken": "_uses_last_item_"
+  },
+  {
+    "service": "Inspector",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Iot",
+    "inputToken": "marker",
+    "outputToken": "nextMarker"
+  },
+  {
+    "service": "IoT1ClickDevicesService",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "IoT1ClickProjects",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "IoTAnalytics",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "IotData",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "IoTEvents",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "IoTEventsData",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "IoTJobsDataPlane",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "IoTThingsGraph",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Kafka",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Kinesis",
+    "inputToken": "_uses_last_item_",
+    "outputToken": "_uses_last_item_"
+  },
+  {
+    "service": "KinesisAnalytics",
+    "inputToken": "_uses_last_item_",
+    "outputToken": "_uses_last_item_"
+  },
+  {
+    "service": "KinesisAnalyticsV2",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "KinesisVideo",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "KinesisVideoArchivedMedia",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "KinesisVideoMedia",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "KMS",
+    "inputToken": "Marker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "LakeFormation",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Lambda",
+    "inputToken": "Marker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "LexModelBuildingService",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "LexRuntime",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "LicenseManager",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Lightsail",
+    "inputToken": "pageToken",
+    "outputToken": "nextPageToken"
+  },
+  {
+    "service": "MachineLearning",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Macie",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "ManagedBlockchain",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MarketplaceCommerceAnalytics",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "MarketplaceEntitlementService",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MarketplaceMetering",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "MediaConnect",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaConvert",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaLive",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaPackage",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaPackageVod",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaStore",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaStoreData",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MediaTailor",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MigrationHub",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Mobile",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "MobileAnalytics",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "MQ",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "MTurk",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Neptune",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "OpsWorks",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "OpsWorksCM",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Organizations",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Personalize",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "PersonalizeEvents",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "PersonalizeRuntime",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "PI",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Pinpoint",
+    "inputToken": "Token",
+    "outputToken": "_dict[0]_.NextToken"
+  },
+  {
+    "service": "PinpointEmail",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "PinpointSMSVoice",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Polly",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Pricing",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "QLDB",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "QLDBSession",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "QuickSight",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "RAM",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "RDS",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "RDSDataService",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "Redshift",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "Rekognition",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ResourceGroups",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ResourceGroupsTaggingAPI",
+    "inputToken": "PaginationToken",
+    "outputToken": "PaginationToken"
+  },
+  {
+    "service": "RoboMaker",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Route53",
+    "inputToken": "Marker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "Route53Domains",
+    "inputToken": "Marker",
+    "outputToken": "NextPageMarker"
+  },
+  {
+    "service": "Route53Resolver",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "S3",
+    "inputToken": "ContinuationToken",
+    "outputToken": "NextContinuationToken"
+  },
+  {
+    "service": "S3Control",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SageMaker",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SageMakerRuntime",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "SecretsManager",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SecurityHub",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ServerlessApplicationRepository",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ServiceCatalog",
+    "inputToken": "PageToken",
+    "outputToken": "NextPageToken"
+  },
+  {
+    "service": "ServiceDiscovery",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "ServiceQuotas",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SES",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Shield",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Signer",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "SimpleDB",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SMS",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "Snowball",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SNS",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "SQS",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "SSM",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "StepFunctions",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "StorageGateway",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "STS",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "Support",
+    "inputToken": "nextToken",
+    "outputToken": "nextToken"
+  },
+  {
+    "service": "SWF",
+    "inputToken": "nextPageToken",
+    "outputToken": "nextPageToken"
+  },
+  {
+    "service": "Textract",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "TranscribeService",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Transfer",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "Translate",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "WAF",
+    "inputToken": "NextMarker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "WAFRegional",
+    "inputToken": "NextMarker",
+    "outputToken": "NextMarker"
+  },
+  {
+    "service": "WorkDocs",
+    "inputToken": "Marker",
+    "outputToken": "Marker"
+  },
+  {
+    "service": "WorkLink",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "WorkMail",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "WorkMailMessageFlow",
+    "inputToken": null,
+    "outputToken": null
+  },
+  {
+    "service": "WorkSpaces",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  },
+  {
+    "service": "XRay",
+    "inputToken": "NextToken",
+    "outputToken": "NextToken"
+  }
+]

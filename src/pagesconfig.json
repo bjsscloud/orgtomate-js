@@ -1,0 +1,13 @@
+{
+  "groups": [
+    {
+      "title": "Documentation",
+      "pages": [
+        {
+          "title": "My Page",
+          "source": "./documentation/sample/sample-page.md"
+        }
+      ]
+    }
+  ]
+}

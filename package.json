@@ -1,0 +1,139 @@
+{
+  "author": {
+    "name": "Mike Peachey",
+    "email": "mike.peachey@bjss.com",
+    "url": "https://www.bjss.com/enterprise-cloud-accelerating-time-to-value/"
+  },
+  "bugs": {
+    "url": "https://github.com/bjsscloud/orgtomate-js/issues"
+  },
+  "bin": {
+    "org": "./dist/org.js"
+  },
+  "dependencies": {
+    "aws-sdk": "latest",
+    "npm": "7.21.0",
+    "yargs": "^17.1.1"
+  },
+  "description": "AWS Organizations Automation Libraries & CLI",
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/plugin-syntax-flow": "latest",
+    "@tsconfig/node14": "latest",
+    "@types/node": "latest",
+    "@types/yargs": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "del": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-config-esnext": "4.1.0",
+    "eslint-config-prettier": "latest",
+    "eslint-config-recommended": "latest",
+    "eslint-import-resolver-typescript": "latest",
+    "eslint-loader": "latest",
+    "eslint-nibble": "latest",
+    "eslint-plugin-babel": "5.3.1",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-node": "latest",
+    "eslint-plugin-prettier": "latest",
+    "eslint-plugin-tsdoc": "0.2.14",
+    "fancy-log": "latest",
+    "gulp": "latest",
+    "gulp-chmod": "3.0.0",
+    "gulp-debug": "latest",
+    "gulp-eslint": "6.0.0",
+    "gulp-gzip": "1.4.2",
+    "gulp-if": "latest",
+    "gulp-ignore": "latest",
+    "gulp-marked-man": "0.3.1",
+    "gulp-rename": "2.0.0",
+    "gulp-sourcemaps": "latest",
+    "gulp-typedoc": "latest",
+    "gulp-typescript": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "3.0.8",
+    "marked-man": "0.7.0",
+    "peerdeps": "latest",
+    "prettier": "latest",
+    "style-loader": "latest",
+    "ts-node": "latest",
+    "tsify": "latest",
+    "typedoc": "latest",
+    "typedoc-plugin-not-exported": "0.1.6",
+    "typedoc-plugin-pages": "1.1.0",
+    "typedoc-plugin-pages-fork": "0.0.1",
+    "typescript": "latest",
+    "vinyl-buffer": "latest",
+    "vinyl-source-stream": "latest",
+    "yarn-upgrade-all": "latest"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./package": "./package.json",
+    "./package.json": "./package.json",
+    "./dist/org": "./dist/org.js",
+    "./dist/org.js": "./dist/org.js",
+    "./dist/aws-org-node": "./dist/aws-org-node.js",
+    "./dist/aws-org-node.js": "./dist/aws-org-node.js",
+    "./dist/get-aws-results": "./dist/get-aws-results.js",
+    "./dist/get-aws-results.js": "./dist/get-aws-results.js",
+    "./dist/orgtomate": "./dist/orgtomate.js",
+    "./dist/orgtomate.js": "./dist/orgtomate.js",
+    "./dist/paginate": "./dist/paginate.js",
+    "./dist/paginate.js": "./dist/paginate.js"
+  },
+  "keywords": [
+    "aws",
+    "aws-cli",
+    "aws-sdk",
+    "cli",
+    "organizations"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "man": [
+    "./dist/man/org.1.gz"
+  ],
+  "name": "orgtomate",
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "parser": "typescript",
+    "printWidth": 120,
+    "proseWrap": "preserve",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjsscloud/orgtomate-js.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "build-all": "gulp build-all",
+    "doc": "gulp doc",
+    "lint": "eslint --cache src/.",
+    "nibble": "eslint-nibble --cache ./src/. --ext .ts",
+    "nibble-one": "eslint-nibble --cache",
+    "prettier": "prettier 'src/**/*.ts'",
+    "prettier:fix": "prettier --write 'src/**/*.ts'",
+    "test": "./tests/test.sh",
+    "tsc": "tsc"
+  },
+  "types": "./dist/index.d.ts",
+  "version": "1.0.0"
+}

@@ -1,0 +1,891 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AwsOrgNode | Orgtomate</title>
+	<meta name="description" content="Documentation for Orgtomate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Orgtomate</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/aws_org_node.html">aws-org-node</a>
+				</li>
+				<li>
+					<a href="aws_org_node.AwsOrgNode.html">AwsOrgNode</a>
+				</li>
+			</ul>
+			<h1>Class AwsOrgNode</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A class implementing an AwsOrgNode Interface</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>remarks</dt>
+						<dd><p>This Class does not expect to be instantiated through its
+								constructor as it needs to be initialised through async AWS API calls
+								Therefore, it must be created through the static function init which
+							will return a new AwsOrgNode: <a href="aws_org_node.AwsOrgNode.html#init">AwsOrgNode.init</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">AwsOrgNode</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="orgtomate.ProcessableAccount.html" class="tsd-signature-type">ProcessableAccount</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-class tsd-parent-kind-module">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>String indexable, which permits the inclusion of any additional
+						data the AWS API might give us when we merge results in</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#Arn" class="tsd-kind-icon">Arn</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#Children" class="tsd-kind-icon">Children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#Id" class="tsd-kind-icon">Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#Name" class="tsd-kind-icon">Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#Organization" class="tsd-kind-icon">Organization</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#Type" class="tsd-kind-icon">Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#nodetype" class="tsd-kind-icon">nodetype</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#addChild" class="tsd-kind-icon">add<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#getAccount" class="tsd-kind-icon">get<wbr>Account</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#getAccounts" class="tsd-kind-icon">get<wbr>Accounts</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#getChild" class="tsd-kind-icon">get<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#getParentOusFor" class="tsd-kind-icon">get<wbr>Parent<wbr>Ous<wbr>For</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#getParentsFor" class="tsd-kind-icon">get<wbr>Parents<wbr>For</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#isAccount" class="tsd-kind-icon">is<wbr>Account</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#isOrganizationalUnit" class="tsd-kind-icon">is<wbr>Organizational<wbr>Unit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#isRoot" class="tsd-kind-icon">is<wbr>Root</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#toString" class="tsd-kind-icon">to<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="aws_org_node.AwsOrgNode.html#toTree" class="tsd-kind-icon">to<wbr>Tree</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="aws_org_node.AwsOrgNode.html#init" class="tsd-kind-icon">init</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Aws<wbr>Org<wbr>Node<span class="tsd-signature-symbol">(</span>Id<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, nodetype<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L256">aws-org-node.ts:256</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance of AwsOrgNode</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>The constructor is basically empty because we need to call
+											async functions when we initialise the object and
+											therefore we declare the static async function init()
+										which is used in place of the constructor</p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="aws_org_node.AwsOrgNode.html">AwsOrgNode</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="aws_org_node.AwsOrgNode.html#Id">AwsOrgNode.Id</a></p>
+									</dd>
+									<dt>see</dt>
+									<dd><p><a href="aws_org_node.AwsOrgNode.html#nodetype">AwsOrgNode.nodetype</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>Id: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;Root&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The Id property for this AwsOrgNode. Optional. Defaults to special string &#39;Root&#39;A</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>nodetype: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;ROOT&#x27;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The nodetype property for this AwsOrgNode. Optional. Defaults to &#39;ROOT&#39;</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a></h4>
+							<p>A placeholder AwsOrgNode object</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="Arn" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Arn</h3>
+					<div class="tsd-signature tsd-kind-icon">Arn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L92">aws-org-node.ts:92</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Amazon Resource Name (ARN) of this node</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="Children" class="tsd-anchor"></a>
+					<h3>Children</h3>
+					<div class="tsd-signature tsd-kind-icon">Children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L85">aws-org-node.ts:85</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of Child AwsOrgNode Objects that are direct descendants</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>defaultvalue</dt>
+							<dd><p>[]</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="Id" class="tsd-anchor"></a>
+					<h3>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L77">aws-org-node.ts:77</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>ID of the Node: [ &#39;Root&#39;, &#39;r-0abc&#39;, &#39;ou-0abc-abcdefgh&#39;, &#39;123456789012&#39; ]</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remarks</dt>
+							<dd><p>This is the ID of an AWS Organizations object, but as an Organization may
+									only have one root, it is not critical to initialise a ROOT AwsOrgNode
+									with its Id; it&#39;s not worth doing a listRoots call just to find it
+									at construction-time; therefore we permit the special value &#39;Root&#39;
+								which is also the default</p>
+							</dd>
+							<dt>defaultvalue</dt>
+							<dd><p>Root</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="Name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Name</h3>
+					<div class="tsd-signature tsd-kind-icon">Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L99">aws-org-node.ts:99</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Name of this node</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="Organization" class="tsd-anchor"></a>
+					<h3>Organization</h3>
+					<div class="tsd-signature tsd-kind-icon">Organization<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Organization</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L113">aws-org-node.ts:113</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The result of Organizations.describeOrganization, when this is a ROOT node</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="Type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L110">aws-org-node.ts:110</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type of this node</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>remarks</dt>
+							<dd><p>This property is not normally used in our objects, but can be merged in from
+								an Organizations.listChildren response, and therefore need to be an optional property</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="nodetype" class="tsd-anchor"></a>
+					<h3>nodetype</h3>
+					<div class="tsd-signature tsd-kind-icon">nodetype<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L62">aws-org-node.ts:62</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type of AWS Organizations node: [ &#39;ROOT&#39;, &#39;ORGANIZATIONAL_UNIT&#39;, &#39;ACCOUNT&#39; ]</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>defaultvalue</dt>
+							<dd><p>ROOT</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addChild" class="tsd-anchor"></a>
+					<h3>add<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Child<span class="tsd-signature-symbol">(</span>child<span class="tsd-signature-symbol">: </span><a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L121">aws-org-node.ts:121</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add a child AwsOrgNode to the Children Array property</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>child: <a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An AwsOrgNode</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getAccount" class="tsd-anchor"></a>
+					<h3>get<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Account<span class="tsd-signature-symbol">(</span>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, recursive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AwsOrgNode</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L175">aws-org-node.ts:175</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an ACCOUNT AwsOrgNode Object that is a child of this AwsOrgNode, or optionally of any descendants as well</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>Id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ID of an ACCOUNT AwsOrgNode to search for in the tree below this node</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> recursive: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If true, search the whole tree. If false, only search immediate child accounts of this node</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AwsOrgNode</span></h4>
+							<p>An AwsOrgNode object if one is found, or undefined if not</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getAccounts" class="tsd-anchor"></a>
+					<h3>get<wbr>Accounts</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Accounts<span class="tsd-signature-symbol">(</span>recursive<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L165">aws-org-node.ts:165</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an Array of all ACCOUNT AwsOrgNode Objects that are children of this AwsOrgNode, or optionally of any descendants as well</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> recursive: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If true, get all accounts in the tree below this nose, if false only get immediate child accounts of this node</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An Array of ACCOUNT AwsOrgNode objects</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getChild" class="tsd-anchor"></a>
+					<h3>get<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Child<span class="tsd-signature-symbol">(</span>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AwsOrgNode</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L130">aws-org-node.ts:130</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an AwsOrgNode Object that is a direct child of this AwsOrgNode by it&#39;s Id property</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>Id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Id of the Child node to find</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AwsOrgNode</span></h4>
+							<p>The AwsOrgNode Object with the provided Id, or undefined if it doesn&#39;t exist</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getParentOusFor" class="tsd-anchor"></a>
+					<h3>get<wbr>Parent<wbr>Ous<wbr>For</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parent<wbr>Ous<wbr>For<span class="tsd-signature-symbol">(</span>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L156">aws-org-node.ts:156</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an Array of AwsOrgNode Objects that are ancestors of the AwsOrgNode, identified by
+									it&#39;s Id property, within the tree below this AwsOrgNode - except any that are ROOT nodes.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Identical to getParentsFor, but omit the ROOT, returning only ORGANIZATIONAL_UNITs.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>Id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Id of the AwsOrgNode to get the Parents OUs for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An Array of ORGANIZATIONAL_UNIT AwsOrgNode objects that are antecedent to the object with the Id provided</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getParentsFor" class="tsd-anchor"></a>
+					<h3>get<wbr>Parents<wbr>For</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parents<wbr>For<span class="tsd-signature-symbol">(</span>Id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L143">aws-org-node.ts:143</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get an Array of AwsOrgNode Objects that are ancestors of the AwsOrgNode within the tree below this AwsOrgNode</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>privateremarks</dt>
+									<dd><p>This could probably be made safer by returning an optional undefined, but for the moment
+										it presumes you wouldn&#39;t search for an Object ID that doesn&#39;t exist</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>Id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Id of the AwsOrgNode to get the Parents for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>An Array of AwsOrgNode objects that are antecedent to the object with the Id provided</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isAccount" class="tsd-anchor"></a>
+					<h3>is<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Account<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L199">aws-org-node.ts:199</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine if this AwsOrgNode Object is an ACCOUNT</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if the nodetype property is ACCOUNT</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isOrganizationalUnit" class="tsd-anchor"></a>
+					<h3>is<wbr>Organizational<wbr>Unit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Organizational<wbr>Unit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L191">aws-org-node.ts:191</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine if this AwsOrgNode Object is an ORGANIZATIONAL_UNIT</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if the nodetype property is ORGANIZATIONAL_UNIT</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isRoot" class="tsd-anchor"></a>
+					<h3>is<wbr>Root</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Root<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L183">aws-org-node.ts:183</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determine if this AwsOrgNode Object is a ROOT</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if the nodetype property is ROOT</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="toString" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L208">aws-org-node.ts:208</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Override of toString inherited from Object: &quot;name (id)&quot;</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>override</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>&quot;this.name (this.id)&quot;</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="toTree" class="tsd-anchor"></a>
+					<h3>to<wbr>Tree</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Tree<span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L217">aws-org-node.ts:217</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A string representation of the tree of AwsOrgNodes beneath this one</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> level: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A private recursion-control parameter</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>A string representation of the AwsOrgNode tree</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="init" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> init</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span>orgNode<span class="tsd-signature-symbol">?: </span><a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a>, orgAccounts<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/bjsscloud/orgtomate-js/blob/7b16726/src/aws-org-node.ts#L293">aws-org-node.ts:293</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an initialised instance of an AwsOrgNode</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This is the <em>real</em> constructor, that calls async functions
+											to populate the Object with the data that makes this object useful
+											By default we are an inferred Organization Root
+										(as opposed to an explicit one defined by an ID like <code>/r-[0-9a-z]{4}/</code>)</p>
+										<p>Properties in this class are capitalised based on whether they match data
+											returned from the AWS APIs, or close-enough. nodetype is a concept
+											custom to this class, and therefore lowercase. Arn and Name are returned
+											from the AWS APIs and are therefore TitleCase. This allows us to use
+										Object.assign to merge API results as if they were native object properties.</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">AwsOrgNode</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;orgtomate&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">awsOrg</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000">.</span><span style="color: #795E26">init</span><span style="color: #000000">();</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">awsOrg</span><span style="color: #000000">.</span><span style="color: #795E26">toTree</span><span style="color: #000000">());</span>
+</code></pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-js"><span style="color: #795E26">e</span><span style="color: #000000">=</span><span style="color: #0000FF">async</span><span style="color: #000000">()</span><span style="color: #0000FF">=&gt;</span><span style="color: #000000">{</span><span style="color: #0000FF">const</span><span style="color: #000000"> {</span><span style="color: #0070C1">AwsOrgNode</span><span style="color: #000000">}=</span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;.&#039;</span><span style="color: #000000">);</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">((</span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">AwsOrgNode</span><span style="color: #000000">.</span><span style="color: #795E26">init</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> (</span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;aws-sdk&#039;</span><span style="color: #000000">).</span><span style="color: #001080">Organizations</span><span style="color: #000000">)({</span><span style="color: #001080">region:</span><span style="color: #A31515">&#039;us-east-1&#039;</span><span style="color: #000000">,</span><span style="color: #001080">maxRetries:</span><span style="color: #098658">100</span><span style="color: #000000">}))).</span><span style="color: #795E26">toTree</span><span style="color: #000000">());};</span><span style="color: #795E26">e</span><span style="color: #000000">();</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>orgNode: <a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An AwsOrgNode object to initialise. Optional. Defaults to an empty Root node</p>
+									</div>
+								</li>
+								<li>
+									<h5>orgAccounts: <span class="tsd-signature-type">AwsOrgNode</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The output from org.listAccounts(). Optional. Performed once per tree initialisation, all children are passed the list generated in the parent&#39;s initialisation.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="aws_org_node.AwsOrgNode.html" class="tsd-signature-type">AwsOrgNode</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A Promise to return the fully initialised AwsOrgNode Object, with all populated Children</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Commands</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/Commands/org.html">org</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/aws_org_node.html">aws-<wbr>org-<wbr>node</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/get_aws_results.html">get-<wbr>aws-<wbr>results</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/orgtomate.html">orgtomate</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/paginate.html">paginate</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="aws_org_node.AwsOrgNode.html" class="tsd-kind-icon">Aws<wbr>Org<wbr>Node</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#Arn" class="tsd-kind-icon">Arn</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#Children" class="tsd-kind-icon">Children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#Id" class="tsd-kind-icon">Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#Name" class="tsd-kind-icon">Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#Organization" class="tsd-kind-icon">Organization</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#Type" class="tsd-kind-icon">Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#nodetype" class="tsd-kind-icon">nodetype</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#addChild" class="tsd-kind-icon">add<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#getAccount" class="tsd-kind-icon">get<wbr>Account</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#getAccounts" class="tsd-kind-icon">get<wbr>Accounts</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#getChild" class="tsd-kind-icon">get<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#getParentOusFor" class="tsd-kind-icon">get<wbr>Parent<wbr>Ous<wbr>For</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#getParentsFor" class="tsd-kind-icon">get<wbr>Parents<wbr>For</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#isAccount" class="tsd-kind-icon">is<wbr>Account</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#isOrganizationalUnit" class="tsd-kind-icon">is<wbr>Organizational<wbr>Unit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#isRoot" class="tsd-kind-icon">is<wbr>Root</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#toString" class="tsd-kind-icon">to<wbr>String</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="aws_org_node.AwsOrgNode.html#toTree" class="tsd-kind-icon">to<wbr>Tree</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="aws_org_node.AwsOrgNode.html#init" class="tsd-kind-icon">init</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>

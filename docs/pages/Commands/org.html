@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>org | Orgtomate</title>
+	<meta name="description" content="Documentation for Orgtomate">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../../assets/js/search.json" data-base="../..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../../index.html" class="title">Orgtomate</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="org.html">Commands</a>
+				</li>
+				<li>
+					<a href="org.html">org</a>
+				</li>
+			</ul>
+			<h1>org</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#org" id="org" style="color: inherit; text-decoration: none;">
+					<h1>ORG</h1>
+				</a>
+				<blockquote>
+					<p>Org - The Orgtomate CLI for AWS Organizations</p>
+				</blockquote>
+				<a href="#synopsis" id="synopsis" style="color: inherit; text-decoration: none;">
+					<h2>SYNOPSIS</h2>
+				</a>
+				<p><code>org &lt;service&gt; &lt;operation&gt; [-c|--constructor-args &lt;key&gt;=&lt;value&gt; ...] [-a|--operation-args &lt;key&gt;=&lt;value&gt; ...] [-j|--args-as-json|--no-j|--no-args-as-json] [-o|--orgtomate &lt;target&gt;] [-y|--recurse|--no-y|--no-recurse] [-r|--regions &lt;region&gt; ...] [-k|--result-key &lt;key&gt;] [-f|--format [flat|full|regions|accountids|accountnames]] [-n|--role-name &lt;role-name&gt;] [-e|--external-id &lt;external-id&gt;] [-s|--duration-seconds &lt;seconds&gt;] [-x|--session-name &lt;session-name&gt;] [-d|--debug|--no-d|--no-debug]</code></p>
+				<a href="#description" id="description" style="color: inherit; text-decoration: none;">
+					<h2>DESCRIPTION</h2>
+				</a>
+				<p>Org is a NodeJS command from the the orgtomate package on NPM: <a href="https://www.npmjs.com/package/orgtomate">https://www.npmjs.com/package/orgtomate</a></p>
+				<p>It is an alternative to the AWS Command Line Interface (CLI) for interacting with AWS APIs. It provides the capability to run commands across multiple AWS Accounts and Regions in parallel, while leveraging the speed of asynchronous JavaScript to fun faster than the Python AWS CLI. It is written in TypeScript and distributed as minified (uglified) JavaScript with type definitions and Source Maps. Org makes use of the other libraries in the orgtomate package: <em>aws-org-node</em>, <em>get-aws-results</em> and <em>orgtomate</em>. <em>aws-org-node</em> provides an Interface and Class for populating a tree structure representing an AWS Organization. <em>get-aws-results</em> provide a standardised automatic paging mechanism for AWS API calls. <em>orgtomate</em> provides the mechanism to run a custom callback in a selection of AWS Accounts in parallel.</p>
+				<p>Org uses the AWS SDK for JavaScript version 2, and exposes the SDK directly to the user. The services and operations available are stylised exactly as they are in the SDK, and the AWS Service client constructor and operation arguments are expected in the exact format that is expected by the SDK. Therefore rather than the AWS CLI command <code>aws route53 list-hosted-zones</code>, in Org you would use <code>org Route53 listHostedZones</code> where services are in TitleCase and operations are in camelCase: <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/">https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/</a></p>
+				<p>While Org&#39;s execution is designed in general to be fast, some operations may be slow if they require the initialisation of a large AWS Organizations tree. When operations are executed against one account, or all of the accounts in the Organization, Org will determine the list of target accounts on its own. If targeting only a part of an AWS Organization, Org will populate an AwsOrgNode object first, and then use it to determine the list of target accounts. The time taken to populate an AwsOrgNode depends on the size of the Organization or branch of an Organization you are targeting. As a rough estimate this will take 10 seconds for a tree of 200 accounts in a horizontal spread of 50 Organizational Units. Once the list of targets has been determined, the remaining executions will be paralellised across all accounts and regions at once, often returning results across all targets faster than the AWS CLI will return results from one.</p>
+				<a href="#website" id="website" style="color: inherit; text-decoration: none;">
+					<h2>WEBSITE</h2>
+				</a>
+				<p><a href="https://bjsscloud.github.io/orgtomate-js">https://bjsscloud.github.io/orgtomate-js</a></p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>EXAMPLES</h2>
+				</a>
+				<p><code>npm install orgtomate -g</code></p>
+				<p><code>org Route53 listHostedZones</code></p>
+				<p><code>org Route53 listHostedZones -c MaxRetries=100 -a MaxItems=1 -o Root -k PaginationMetadata -f accountnames</code></p>
+				<p><code>org EC2 describeInstances -r eu-west-1 eu-west-2 eu-west-3</code></p>
+				<p><code>org EC2 describeInstances -o Root -f full</code></p>
+				<p><code>org EC2 describeInstances -o ou-r0123-abcdef01 --no-recurse -r eu-west-1 eu-west-2 -a Filters=&#39;[{&quot;Name&quot;: &quot;platform&quot;, &quot;Values&quot;: [&quot;windows&quot;]}]&#39; -j -k Reservations | jq &#39;.Reservations[].Instances[].InstanceId&#39;</code></p>
+				<a href="#options" id="options" style="color: inherit; text-decoration: none;">
+					<h2>OPTIONS</h2>
+				</a>
+				<p><em>Option Types:</em></p>
+				<ul>
+					<li>String: A string. May have a default.</li>
+					<li>Number: A string parsed as a number.</li>
+					<li>Boolean: Takes no arguments. Negated by prefixing with <code>--no-</code>.</li>
+					<li>Array: Values can be specified space-separated, or with multiple repeat flags, e.g. <code>-r eu-west-1 eu-west-2</code> or <code>-r eu-west-1 -r eu-west-2</code>.</li>
+				</ul>
+				<p><code>&lt;service&gt;</code><br>    <em>String :: Required</em><br>    The AWS API Service Constructor to instantiate, e.g. EC2, Route53, IAM, Organizations, IoT1ClickDevicesService, WellArchitected, ServiceQuotas, Support, ResourceGroupsTaggingAPI</p>
+				<p><code>&lt;operation&gt;</code><br>    <em>String :: Required</em><br>    The Operation to call on the requested Service, e.g. listHostedZones, describeInstances, getAccountPasswordPolicy, listOrganizationalUnits, invokeDeviceMethod, listWorkloads, requestServiceQuotaIncrease, describeTrustedAdvisorChecks, startReportCreation</p>
+				<p><code>-c</code>, <code>--constructor-args</code><br>    <em>Array :: Optional</em><br>    Custom arguments to pass to the AWS API Service Constructor, such as exponential backoff parameters. Specified as an Array of key=value pairs. Values may be specified as strings, or optionally as JSON data if combined with <code>-j|--args-as-json</code>.</p>
+				<p><code>-a</code>, <code>--operation-args</code><br>    <em>Array :: Optional</em><br>    Custom arguments to pass to the AWS API Service Operation, such as resource filters or page size limits. Specified as an Array of key=value pairs. Values may be specified as strings, or optionally as JSON data if combined with <code>-j|--args-as-json</code>.</p>
+				<p><code>-j</code>, <code>--args-as-json</code>, <code>--no-j</code>, <code>--no-args-as-json</code><br>    <em>Boolean :: Default: false</em><br>    Whether to parse the values in <code>-c|--constructor-args</code> and <code>-a|--operation-args</code> arguments as JSON data using <code>JSON.parse()</code></p>
+				<p><code>-o</code>, <code>--orgtomate</code><br>    <em>String :: Optional</em><br>    The ID of a node in an AWS Organization, or &#39;Root&#39; to anonymously reference the Root of the Organization.
+				Options: &#39;Root&#39; | /^r-[a-z0-9]{4}$/ | /^ou-[a-z0-9]+-[a-z0-9]+$/ | /^[0-9]{12}$/</p>
+				<p><code>-y</code>, <code>--recurse</code>, <code>--no-y</code>, <code>--no-recurse</code><br>    <em>Boolean :: Default: true</em><br>    When specifying a Root or an Organizational Unit target, whether to gather all accounts recursively below the target, or only accounts that are immediate children of the target</p>
+				<p><code>-r</code>, <code>--regions</code><br>    <em>Array` :: Default: us-east-1</em><br>        The AWS Regions in which to execute the API call in parallel for every account being targeted, whether just locally or with Orgtomate</p>
+				<p><code>-k</code>, <code>--result-key</code><br>    <em>String :: Optional</em><br>        The resultKey to pass to getAwsResults that will reduce the Operation output to only the information required for ease of visualisation and parsing</p>
+				<p><code>-f</code>, <code>--format</code><br>    <em>String :: Default: flat</em><br>    The format in which to present the results. Options are: <code>flat</code>, <code>full</code>, <code>regions</code>, <code>accountids</code>, <code>accountnames</code>.
+					* <code>flat</code>: emulates the response you would expect from a single account, with every result from every account and region merged into one result
+					* <code>full</code>: returns an Array of objects with results in the <code>results</code> key, the execution AWS Region in the <code>region</code> key and, when using Orgtomate, the AWS Account Name and AWS Account ID in the <code>accountName</code> and <code>accountId</code> keys respectively
+					* <code>regions</code>: returns an object with one key per execution AWS Region, containing all merged results for that region as the value
+					* <code>accountids</code>: returns an object with one key per execution AWS Account ID, containing all merged results for that account as the value
+				* <code>accountnames</code>: returns an object with one key per execution AWS Account Name, containing all merged results for that account as the value</p>
+				<p><code>-n</code>, <code>--role-name</code><br>    <em>String :: Default: OrganizationAccountAccessRole</em><br>    The name of the AWS IAM Role to assume to access each account targeted by <code>-o|--orgtomate</code></p>
+				<p><code>-e</code>, <code>--external-id</code><br>    <em>String :: Optional</em><br>    The value of the External ID string to use when assuming the AWS IAM Role for each account targeted by <code>-o|--orgtomate</code></p>
+				<p><code>-s</code>, <code>--duration-seconds</code><br>    <em>Number :: Default: 900</em><br>    The maximum age of the AWS Security Token Service credentials generated when assuming each AWS IAM Role to access each account targeted by <code>-o|--orgtomate</code>. These credentials should never live longer than the length of time the operation requires, and therefore, this should almost always be left at the default minimum value of 900.</p>
+				<p><code>-x</code>, <code>--session-name</code><br>    <em>String :: Default: orgtomate-cli</em><br>    The value of the Role Session Name string to use when assuming the AWS IAM Role for each account targeted by <code>-o|--orgtomate</code></p>
+				<p><code>-d</code>, <code>--debug</code>, <code>--no-d</code>, <code>--no-debug</code><br>    <em>Boolean :: Default: false</em><br>    Whether to print debug information to STDERR while processing the command</p>
+				<a href="#environment-variables" id="environment-variables" style="color: inherit; text-decoration: none;">
+					<h2>ENVIRONMENT VARIABLES</h2>
+				</a>
+				<p>The following environment variables will be used as overriding <em>default</em> values for corresponding options. These defaults may still be superceded by passing a value as an argument.</p>
+				<ul>
+					<li><code>AWS_DEFAULT_REGION</code> overrides <code>AWS_REGION</code> overrides <code>-r|--region</code></li>
+					<li><code>ROLE_NAME</code> overrides <code>-n|--role-name</code></li>
+					<li><code>ROLE_EXTERNAL_ID</code> overrides <code>-e|--external-id</code></li>
+					<li><code>ROLE_SESSION_NAME</code> overrides <code>-x|--session-name</code></li>
+					<li><code>ROLE_DURATION_SECONDS</code> overrides <code>-s|--duration-seconds</code></li>
+				</ul>
+				<a href="#bugs" id="bugs" style="color: inherit; text-decoration: none;">
+					<h2>BUGS</h2>
+				</a>
+				<p>Please report any bugs at <a href="https://github.com/bjsscloud/orgtomate-js/issues">https://github.com/bjsscloud/orgtomate-js/issues</a></p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>LICENSE</h2>
+				</a>
+				<p>Copyright (c) 2021, Mike Peachey, BJSS Limited (MIT License).</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Commands</span>
+					</li>
+					<li class="current pp-nav pp-page">
+						<a href="org.html">org</a>
+					</li>
+					<li class="label pp-nav pp-group">
+						<span>API</span>
+					</li>
+					<li class=" ">
+						<a href="../../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/aws_org_node.html">aws-<wbr>org-<wbr>node</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/get_aws_results.html">get-<wbr>aws-<wbr>results</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/orgtomate.html">orgtomate</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../../modules/paginate.html">paginate</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../../assets/js/search.json"><' + '/script>');</script>
+</body>
+</html>
