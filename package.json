@@ -86,6 +86,7 @@
     "./dist/paginate": "./dist/paginate.js",
     "./dist/paginate.js": "./dist/paginate.js"
   },
+  "homepage": "https://bjsscloud.github.io/orgtomate-js",
   "keywords": [
     "aws",
     "aws-cli",
@@ -135,5 +136,5 @@
     "tsc": "tsc"
   },
   "types": "./dist/index.d.ts",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
