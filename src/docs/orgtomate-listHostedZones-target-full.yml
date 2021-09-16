@@ -1,0 +1,232 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash --rcfile ~/.terminalizer/bash_init
+  skipSharing: true
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/jaz
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 60
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: auto
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: solid
+    title: Orgtomate - List Hosted Zones under Organization Node
+    style:
+      border: 0px black solid
+      boxShadow: none
+      margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 75
+    content: '$ '
+  - delay: 75
+    content: o
+  - delay: 75
+    content: r
+  - delay: 75
+    content: g
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: R
+  - delay: 75
+    content: o
+  - delay: 75
+    content: u
+  - delay: 75
+    content: t
+  - delay: 75
+    content: e
+  - delay: 75
+    content: '5'
+  - delay: 75
+    content: '3'
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: l
+  - delay: 75
+    content: i
+  - delay: 75
+    content: s
+  - delay: 75
+    content: t
+  - delay: 75
+    content: H
+  - delay: 75
+    content: o
+  - delay: 75
+    content: s
+  - delay: 75
+    content: t
+  - delay: 75
+    content: e
+  - delay: 75
+    content: d
+  - delay: 75
+    content: Z
+  - delay: 75
+    content: o
+  - delay: 75
+    content: n
+  - delay: 75
+    content: e
+  - delay: 75
+    content: s
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: '-'
+  - delay: 75
+    content: o
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: ou-0abc-abcdefab
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: '-'
+  - delay: 75
+    content: k
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: H
+  - delay: 75
+    content: o
+  - delay: 75
+    content: s
+  - delay: 75
+    content: t
+  - delay: 75
+    content: e
+  - delay: 75
+    content: d
+  - delay: 75
+    content: Z
+  - delay: 75
+    content: o
+  - delay: 75
+    content: n
+  - delay: 75
+    content: e
+  - delay: 75
+    content: s
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: '-'
+  - delay: 75
+    content: f
+  - delay: 75
+    content: ' '
+  - delay: 75
+    content: f
+  - delay: 75
+    content: u
+  - delay: 75
+    content: l
+  - delay: 75
+    content: l
+  - delay: 5000
+    content: "\r\n"
+  - delay: 75
+    content: "[\r\n  {\r\n    \"accountId\": \"012345678901\",\r\n    \"accountName\": \"security\",\r\n    \"region\": \"eu-west-2\",\r\n    \"results\": [\r\n      {\r\n        \"Id\": \"/hostedzone/Z00000000AAA0AAA0A0AA\",\r\n        \"Name\": \"security.bjsscloud.net.\",\r\n        \"CallerReference\": \"terraform-20210000000000000000000001\",\r\n        \"Config\": {\r\n          \"Comment\": \"security.bjsscloud.net\",\r\n          \"PrivateZone\": false\r\n        },\r\n        \"ResourceRecordSetCount\": 2\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"accountId\": \"012345678902\",\r\n    \"accountName\": \"audit\",\r\n    \"region\": \"eu-west-2\",\r\n    \"results\": [\r\n      {\r\n        \"Id\": \"/hostedzone/Z00000000A000A0A0A000\",\r\n        \"Name\": \"audit.bjsscloud.net.\",\r\n        \"CallerReference\": \"terraform-20210000000000000000000001\",\r\n        \"Config\": {\r\n          \"Comment\": \"audit.bjsscloud.net\",\r\n          \"PrivateZone\": false\r\n        },\r\n        \"ResourceRecordSetCount\": 2\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"accountId\": \"012345678903\",\r\n    \"accountName\": \"shared\",\r\n    \"region\": \"eu-west-2\",\r\n    \"results\": [\r\n      {\r\n        \"Id\": \"/hostedzone/Z00000000AAAA0AAA0AAA\",\r\n        \"Name\": \"shared.bjsscloud.net.\",\r\n        \"CallerReference\": \"terraform-20210306005419330300000001\",\r\n        \"Config\": {\r\n          \"Comment\": \"shared.bjsscloud.net\",\r\n          \"PrivateZone\": false\r\n        },\r\n        \"ResourceRecordSetCount\": 3\r\n      },\r\n      {\r\n        \"Id\": \"/hostedzone/Z00000000AA0AAA0A0AAA\",\r\n        \"Name\": \"shared.bjsscloud.net.\",\r\n        \"CallerReference\": \"terraform-20210000000000000000000004\",\r\n        \"Config\": {\r\n          \"Comment\": \"bjss-pr-lz\",\r\n          \"PrivateZone\": true\r\n        },\r\n        \"ResourceRecordSetCount\": 2\r\n      }\r\n    ]\r\n  }\r\n]\r\n"
+  - delay: 5000
+    content: '$ '
