@@ -23,6 +23,7 @@ const uglify = require('gulp-uglify');
 const tsProject = typescript.createProject('./src/tsconfig.json');
 
 const paths = {
+  gifs: ['src/docs/*.gif'],
   ghconfig: ['src/docs/_config.yml'],
   scripts: ['src/**/*.ts'],
   dest: 'dist',
@@ -42,6 +43,11 @@ gulp.task('clean', gulp.parallel('clean-docs', 'clean-dest'));
 
 gulp.task('ghconfig', () => {
   return gulp.src(paths.ghconfig)
+    .pipe(gulp.dest(paths.docs))
+});
+
+gulp.task('gifs', () => {
+  return gulp.src(paths.gifs)
     .pipe(gulp.dest(paths.docs))
 });
 
@@ -99,7 +105,7 @@ gulp.task('compile', () => {
   // .pipe(gulpDebug({title: 'after dest:'}))
 });
 
-gulp.task('doc', gulp.series('test', 'clean-docs', gulp.parallel('typedoc', 'ghconfig')));
+gulp.task('doc', gulp.series('test', 'clean-docs', gulp.parallel('typedoc', 'ghconfig', 'gifs')));
 gulp.task('build', gulp.series('test', 'clean-dest', gulp.parallel('compile', 'marked-man')));
-gulp.task('build-all', gulp.series('test', 'clean', gulp.parallel('typedoc', 'ghconfig', 'marked-man', 'compile')));
+gulp.task('build-all', gulp.series('test', 'clean', gulp.parallel('typedoc', 'ghconfig', 'gifs', 'marked-man', 'compile')));
 gulp.task('default', gulp.series('build'));

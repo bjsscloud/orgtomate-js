@@ -63,6 +63,27 @@ Usage of the org command is detailed in the man page:
 
 The man page should be installed by default by npm or yarn, however both tools have recently suffered significant issues with installing man pages. If `man 1 org` does not work on your system, the manpage should still be available in its installation directory: e.g. `man /usr/lib/node_modules/orgtomate/dist/man/org.1.gz`
 
+### Examples
+
+#### Comparing Speed: AWS CLI vs. Orgtomate
+
+![listHostedZones Time Comparison](docs/orgtomate-listHostedZones-comparison.gif "listHostedZones Time Comparison")
+
+#### Route53 List Hosted Zones - One Account
+
+![listHostedZones](docs/orgtomate-listHostedZones.gif "listHostedZones")
+
+#### Route53 Count Hosted Zones - All Accounts
+
+![listHostedZones Root Count](docs/orgtomate-listHostedZones-root-count.gif "listHostedZones Root Count")
+
+#### Route53 List Hoseted Zones - Organizational Unit - Full Output
+
+![listHostedZones Targeted Full](docs/orgtomate-listHostedZones-target-full.gif "listHostedZones Targeted Full")
+
+#### EBS Encryption By Default - Multi-Account Multi-Region Format Options
+
+![Multi-Account Multi-Region Format Options](docs/orgtomate-multi-region-format-options.gif "Multi-Account Multi-Region Format Options")
 
 ## The Modules
 
