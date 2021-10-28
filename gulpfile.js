@@ -7,7 +7,7 @@ const { version } = require('./package.json');
 
 const chmod = require('gulp-chmod');
 const del = require('del');
-const eslint = require('gulp-eslint');
+const eslint = require('@zebrajaeger/gulp-eslint');
 const gulp = require('gulp');
 const gulpDebug = require('gulp-debug');
 const gulpIf = require('gulp-if');
