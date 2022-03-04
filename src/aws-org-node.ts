@@ -459,7 +459,9 @@ export class AwsOrgNode {
         childrenToPopulate.flat().forEach((child: AwsOrgNode) => {
           const newChild: AwsOrgNode = child;
           newChild.nodetype = newChild.Type ? newChild.Type : 'ORGANIZATIONAL_UNIT';
-          flatChildren.push(newChild);
+          if (!(newChild.Status && newChild.Status === 'SUSPENDED')) {
+            flatChildren.push(newChild);
+          }
         });
 
         /**
