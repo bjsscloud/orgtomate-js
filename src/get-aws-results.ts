@@ -72,10 +72,20 @@ export const getAwsResults = async (
        * no idea what service is being requested. You're just lucky this isn't the v3 AWS SDK
        * where there's a chance we're going to end up doing an eval so we still be service agnostic
        */
-      const client = new (<any>AWS)[service](clientParams);
+      let client;
+      try {
+        client = new (<any>AWS)[service](clientParams);
+      } catch (error) {
+        throw new Error(`Unable to instantiate service: ${service}: ${error}`);
+      }
 
       /** Initialise our AWS Request object */
-      const request = client[operation](operationParams);
+      let request;
+      try {
+        request = client[operation](operationParams);
+      } catch (error) {
+        throw new Error(`Unable to initialise request object: ${operation}: ${error}`);
+      }
 
       /** Add some handy pagination metadata as an object */
       const pageable: boolean = request.isPageable();
