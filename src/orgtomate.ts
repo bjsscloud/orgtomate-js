@@ -173,9 +173,15 @@ const processAccount = async (awsAccount: ProcessableAccount): Promise<any> => {
     });
 
     return asyncCallbackResult;
-  } catch (err) {
-    /** Use console.error so we dont interrupt automated parsing of JSON output on stdout */
-    console.error(`Failed to process account ${awsAccount.Id} :: ${awsAccount.Name} :: ${err.message}`);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      /** Use console.error so we dont interrupt automated parsing of JSON output on stdout */
+      console.error(`Failed to process account ${awsAccount.Id} :: ${awsAccount.Name} :: ${err.message}`);
+    } else {
+      console.error(
+        `Failed to process account ${awsAccount.Id} :: ${awsAccount.Name} :: Resultant err wasn't an Error?!`,
+      );
+    }
 
     /**
      * Return a null object to the array of results from calls to this function
@@ -299,9 +305,14 @@ export const orgtomate = async (
 
         awsOrgNodesToProcess = awsOrgNode.getAccounts(recursive);
       }
-    } catch (err) {
-      console.error(`Failed to get Account IDs: ${err.message}`);
-      throw err;
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        /** Use console.error so we dont interrupt automated parsing of JSON output on stdout */
+        console.error(`Failed to get Account IDs: ${err.message}`);
+        throw err;
+      } else {
+        throw new Error("Failed to get Account IDs: Resultant caught exception (err) wasn't an Error object?!");
+      }
     }
 
     /**
@@ -349,13 +360,23 @@ export const orgtomate = async (
 
       /** Chomp any falsy array elements in the promise response, and return it*/
       return results.filter(Boolean);
-    } catch (err) {
-      console.error(`Failed to process accounts: ${err.message}`);
-      throw err;
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        /** Use console.error so we dont interrupt automated parsing of JSON output on stdout */
+        console.error(`Failed to process accounts: ${err.message}`);
+        throw err;
+      } else {
+        throw new Error("Failed to process accounts: Resultant caught exception (err) wasn't an Error object?!");
+      }
     }
-  } catch (err) {
-    console.error(err, err.stack);
-    throw err;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      /** Use console.error so we dont interrupt automated parsing of JSON output on stdout */
+      console.error(err, err.stack);
+      throw err;
+    } else {
+      throw new Error("Exception (err) wasn't an Error object?!");
+    }
   }
 };
 
