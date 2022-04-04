@@ -234,6 +234,7 @@ export class AwsOrgNode {
    * @defaultValue []
    * @public
    */
+  // eslint-disable-next-line no-use-before-define
   Children: Array<AwsOrgNode> = [];
 
   /**

@@ -4,7 +4,8 @@
 *Mon Apr 04 2022*
 
  * Improve error reporting and suspended account handling - #1
-'
+ * Update dependencies
+
 ## 1.0.1
 *Thu Aug 26 2021*
 
