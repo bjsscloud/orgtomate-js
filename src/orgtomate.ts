@@ -285,8 +285,14 @@ export const orgtomate = async (
 
         accountList.forEach((account) => {
           const newAwsOrgNode: AwsOrgNode = account;
-          newAwsOrgNode.nodetype = 'ACCOUNT';
-          awsOrgNodesToProcess.push(newAwsOrgNode);
+
+          /**
+           * Orgtomate is functionally useless against SUSPENDED AWS Accounts where the IAM Role cannot be assumed
+           */
+          if (!('Status' in newAwsOrgNode && newAwsOrgNode.Status === 'SUSPENDED')) {
+            newAwsOrgNode.nodetype = 'ACCOUNT';
+            awsOrgNodesToProcess.push(newAwsOrgNode);
+          }
         });
       } else {
         /**
@@ -299,7 +305,11 @@ export const orgtomate = async (
         targetData.Id = targetId || 'Root';
         targetData.nodetype = targetNodetype;
 
-        const awsOrgNode = await AwsOrgNode.init(targetData).catch((error: unknown) => {
+        /**
+         * Passing `true` to skipSuspended as Orgtomate is functionally useless
+         * against SUSPENDED AWS Accounts where the IAM Role cannot be assumed
+         */
+        const awsOrgNode = await AwsOrgNode.init(targetData, true).catch((error: unknown) => {
           throw error;
         });
 

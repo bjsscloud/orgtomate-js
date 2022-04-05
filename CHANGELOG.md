@@ -1,5 +1,10 @@
 # Orgtomate Change Log
 
+## 1.1.0
+*Tue Apr 05 2022*
+
+ * Rewrite suspended account handling, add new example - #3
+
 ## 1.0.2
 *Mon Apr 04 2022*
 
