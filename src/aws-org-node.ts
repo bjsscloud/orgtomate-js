@@ -287,11 +287,16 @@ export class AwsOrgNode {
    * e=async()=>{const {AwsOrgNode}=require('.');console.log((await AwsOrgNode.init(new (require('aws-sdk').Organizations)({region:'us-east-1',maxRetries:100}))).toTree());};e();
    * ```
    * @param orgNode - An AwsOrgNode object to initialise. Optional. Defaults to an empty Root node
+   * @param skipSuspended - Whether to include AWS Accounts in a SUSPENDED state. Optional. Defaults to false
    * @param orgAccounts - The output from org.listAccounts(). Optional. Performed once per tree initialisation, all children are passed the list generated in the parent's initialisation.
    * @returns A Promise to return the fully initialised AwsOrgNode Object, with all populated Children
    * @public
    */
-  static init(orgNode: AwsOrgNode = new AwsOrgNode(), orgAccounts: Array<AwsOrgNode> = []): Promise<AwsOrgNode> {
+  static init(
+    orgNode: AwsOrgNode = new AwsOrgNode(),
+    skipSuspended = false,
+    orgAccounts: Array<AwsOrgNode> = [],
+  ): Promise<AwsOrgNode> {
     return (
       /**
        * The pseudo-constructor async implementation for the AwsOrgNode class
@@ -460,9 +465,7 @@ export class AwsOrgNode {
         childrenToPopulate.flat().forEach((child: AwsOrgNode) => {
           const newChild: AwsOrgNode = child;
           newChild.nodetype = newChild.Type ? newChild.Type : 'ORGANIZATIONAL_UNIT';
-          if (!(newChild.Status && newChild.Status === 'SUSPENDED')) {
-            flatChildren.push(newChild);
-          }
+          flatChildren.push(newChild);
         });
 
         /**
@@ -482,10 +485,25 @@ export class AwsOrgNode {
          */
         const populate = async (child: AwsOrgNode): Promise<void> => {
           const newEmptyChild = Object.assign(new AwsOrgNode(), child);
-          const newChild = await AwsOrgNode.init(newEmptyChild, thisOrgAccounts).catch((error: unknown) => {
-            throw error;
-          });
-          thisOrgNode.addChild(newChild);
+          const newChild = await AwsOrgNode.init(newEmptyChild, skipSuspended, thisOrgAccounts).catch(
+            (error: unknown) => {
+              throw error;
+            },
+          );
+
+          /**
+           * Only process SUSPENDED account if we aren't intentionally skipping them
+           */
+          if (
+            !(
+              skipSuspended &&
+              newChild.nodetype === 'ACCOUNT' &&
+              'Status' in newChild &&
+              newChild.Status === 'SUSPENDED'
+            )
+          ) {
+            thisOrgNode.addChild(newChild);
+          }
         };
 
         /**

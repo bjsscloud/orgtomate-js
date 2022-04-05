@@ -146,11 +146,13 @@ As an example of this choice, Orgtomate does not always initialise an AwsOrgNode
 
 Should a developer require any complex inference of AWS Organization relationships that are not fulfilled by the AWS API or AwsOrgNode, the AwsOrgNode object can be extended to provide additional methods or properties, as is done in Orgtomate to extend an AwsOrgNode into a ProcessableAccount.
 
+AwsOrgNode takes the optional skipSuspended paremeter to not include AWS Accounts in a SUSPENDED state when populating the tree, as suspended accounts are often completely irrelevant.
+
 
 #### Export
 
 ```typescript
-static init(orgNode: AwsOrgNode = new AwsOrgNode(), orgAccounts: Array<AwsOrgNode> = []): Promise<AwsOrgNode>
+static init(orgNode: AwsOrgNode = new AwsOrgNode(), skipSuspended = false, orgAccounts: Array<AwsOrgNode> = []): Promise<AwsOrgNode>
 ```  
 
 #### Usage
@@ -193,7 +195,7 @@ const hostedZones: Array<any> = getAwsResults('Route53', 'listHostedZones', {}, 
 
 ### Orgtomate
 
-This module provides a function that takes a starting point in an AWS Organization, and a callback function, and runs the callback against every Child AWS Account in the tree, recursively or not.
+This module provides a function that takes a starting point in an AWS Organization, and a callback function, and runs the callback against every Child AWS Account in the tree that is not in a SUSPENDED state, recursively or not.
 
 The callback function receives two parameters, a credentials object and ProcessableAccount (extends AwsOrgNode). 
 
