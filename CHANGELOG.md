@@ -1,5 +1,10 @@
 # Orgtomate Change Log
 
+## 1.1.1
+*Thu Oct 06 2022*
+
+ * Update aws-sdk dep to latest. It should never have been locked.
+
 ## 1.1.0
 *Tue Apr 05 2022*
 
