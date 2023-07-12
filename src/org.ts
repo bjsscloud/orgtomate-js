@@ -122,6 +122,8 @@ interface Arguments {
   'args-as-json'?: boolean;
   k: string | undefined;
   'result-key'?: string;
+  m: string | undefined;
+  'management-account'?: string;
   o: string | undefined;
   orgtomate?: string;
   y: boolean;
@@ -179,6 +181,11 @@ const options: Arguments = yargs
     alias: 'result-key',
     type: 'string',
     describe: 'Optional Result Key from the API Response',
+  })
+  .option('m', {
+    alias: 'management-account',
+    type: 'string',
+    describe: 'AWS Account ID of the Management Account',
   })
   .option('o', {
     alias: 'orgtomate',
@@ -601,6 +608,7 @@ const execute = async () => {
       roleInfo,
       targetId,
       recurse,
+      options['management-account'],
     ).catch((error: unknown) => {
       throw error;
     });

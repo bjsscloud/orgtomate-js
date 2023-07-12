@@ -208,6 +208,7 @@ const processAccount = async (awsAccount: ProcessableAccount): Promise<any> => {
  * @param roleInfo - The information about the role we need to assume in each account
  * @param targetId - An optional ID of a target Node in the Organization parenting all of the accounts to operate in
  * @param recursive - Whether to target all accounts below the target, or only immediate children of it
+ * @param orgMgmtAccountId - An optional ID of the account that is the management account for the Organization, to use for listAccounts
  * @returns A promise to return an Array containing the result of processAccount for each account targeted
  * @public
  */
@@ -216,6 +217,7 @@ export const orgtomate = async (
   roleInfo: RoleInfo,
   targetId: string | null = null,
   recursive = false,
+  orgMgmtAccountId: string | null = null,
 ): Promise<Array<any>> => {
   /** Type-safety */
   if (!asyncCallback) {
@@ -273,15 +275,35 @@ export const orgtomate = async (
          * and add them or our Array of accounts to process
          */
 
-        const accountList: Array<any> = await getAwsResults(
-          'Organizations',
-          'listAccounts',
-          { region: 'us-east-1', maxRetries: 100 },
-          {},
-          'Accounts',
-        ).catch((error: unknown) => {
-          throw error;
-        });
+        let accountList: Array<any> = [];
+
+        const orgParams = {
+          region: 'us-east-1',
+          maxRetries: 100,
+        };
+
+        if (orgMgmtAccountId) {
+          const listAccountsCallback = async (credentials: RoleCredentials, awsAccount: ProcessableAccount) => {
+            const listAccountsClientParams = { credentials, ...orgParams };
+            return getAwsResults('Organizations', 'listAccounts', listAccountsClientParams, {}, 'Accounts').catch(
+              (error) => {
+                throw error;
+              },
+            );
+          };
+
+          const orgResult = await orgtomate(listAccountsCallback, roleInfo, orgMgmtAccountId).catch((error) => {
+            throw error;
+          });
+
+          [accountList] = orgResult;
+        } else {
+          accountList = await getAwsResults('Organizations', 'listAccounts', orgParams, {}, 'Accounts').catch(
+            (error: unknown) => {
+              throw error;
+            },
+          );
+        }
 
         accountList.forEach((account) => {
           const newAwsOrgNode: AwsOrgNode = account;
