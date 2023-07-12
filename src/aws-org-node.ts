@@ -22,14 +22,6 @@ import { Organization } from 'aws-sdk/clients/organizations';
 import { getAwsResults } from './get-aws-results';
 
 /**
- * Organizations only supports us-east-1
- *
- * AwsOrgNode can be quite heavy on the API, the default
- * maxRetries is a gateway to Rate Limit Exceeded exceptions
- */
-const orgParams = { region: 'us-east-1', maxRetries: 100 };
-
-/**
  * An interface describing an AwsOrgNode
  *
  * @remarks
@@ -296,6 +288,7 @@ export class AwsOrgNode {
     orgNode: AwsOrgNode = new AwsOrgNode(),
     skipSuspended = false,
     orgAccounts: Array<AwsOrgNode> = [],
+    orgParamOverrides: Record<string, unknown> = {},
   ): Promise<AwsOrgNode> {
     return (
       /**
@@ -306,6 +299,20 @@ export class AwsOrgNode {
        */
       (async function initAsync(): Promise<AwsOrgNode> {
         let thisOrgNode: AwsOrgNode = orgNode;
+
+        const orgParams = {
+          /* Organizations only supports us-east-1 */
+          region: 'us-east-1',
+
+          /*
+           * AwsOrgNode can be quite heavy on the API, the default
+           * maxRetries is a gateway to Rate Limit Exceeded exceptions
+           */
+          maxRetries: 100,
+
+          /* Any overrides passed in will be merged into the default parameters */
+          ...orgParamOverrides,
+        };
 
         /**
          * If we are the first object in the tree being initialised,

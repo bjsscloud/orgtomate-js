@@ -1,5 +1,14 @@
 # Orgtomate Change Log
 
+## 1.2.0
+*Wed Jul 12 2023*
+
+ * Add functionality to specify org client Paramters in the AwsOrgNode class init
+ * Add orgtomate parameter to allow Management Account ID to be specified
+   so that Orgtomate can assume the defined target role in an alternate
+   account in order to perform Organizations queries like listAccounts
+ * Add -m/--management-account paramater in the command line accordingly
+
 ## 1.1.1
 *Thu Oct 06 2022*
 

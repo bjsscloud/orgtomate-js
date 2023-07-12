@@ -6,7 +6,7 @@ ORG
 
 ## SYNOPSIS
 
-`org <service> <operation> [-c|--constructor-args <key>=<value> ...] [-a|--operation-args <key>=<value> ...] [-j|--args-as-json|--no-j|--no-args-as-json] [-o|--orgtomate <target>] [-y|--recurse|--no-y|--no-recurse] [-r|--regions <region> ...] [-k|--result-key <key>] [-f|--format [flat|full|regions|accountids|accountnames]] [-n|--role-name <role-name>] [-e|--external-id <external-id>] [-s|--duration-seconds <seconds>] [-x|--session-name <session-name>] [-d|--debug|--no-d|--no-debug]`
+`org <service> <operation> [-c|--constructor-args <key>=<value> ...] [-a|--operation-args <key>=<value> ...] [-j|--args-as-json|--no-j|--no-args-as-json] [-o|--orgtomate <target>] [-m|--management-account <AWS Account ID>] [-y|--recurse|--no-y|--no-recurse] [-r|--regions <region> ...] [-k|--result-key <key>] [-f|--format [flat|full|regions|accountids|accountnames]] [-n|--role-name <role-name>] [-e|--external-id <external-id>] [-s|--duration-seconds <seconds>] [-x|--session-name <session-name>] [-d|--debug|--no-d|--no-debug]`
 
 
 ## DESCRIPTION
@@ -72,6 +72,10 @@ While Org's execution is designed in general to be fast, some operations may be 
 	*String :: Optional*  
 	The ID of a node in an AWS Organization, or 'Root' to anonymously reference the Root of the Organization. 
         Options: 'Root' | /^r-[a-z0-9]{4}$/ | /^ou-[a-z0-9]+-[a-z0-9]+$/ | /^[0-9]{12}$/
+
+`-m`, `--management-account`
+    *String :: Optional*
+    The ID of an AWS Account to use as a substitute for running the Organizations commands necessary for determining which accounts can/should be targeted by Orgtomate. Account must allow the credentials Orgtomate operates with to assume the defined IAM Role (-n parameter) in the management account, and the role in the management account must have Organizations read permissions
 
 `-y`, `--recurse`, `--no-y`, `--no-recurse`  
 	*Boolean :: Default: true*  

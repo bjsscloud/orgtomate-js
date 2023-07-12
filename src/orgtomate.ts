@@ -247,6 +247,19 @@ export const orgtomate = async (
     let awsOrgNodesToProcess: Array<AwsOrgNode> = [];
     const processableAccountsToProcess: Array<ProcessableAccount> = [];
 
+    /**
+     * Information about the role we are going to use in all accounts
+     */
+    const roleName = roleInfo.name;
+    const roleSessionName = roleInfo.sessionName || 'orgtomate';
+    const roleExternalId = roleInfo.externalId || undefined;
+    const roleDurationSeconds = roleInfo.durationSeconds || 3600;
+
+    const orgParams = {
+      region: 'us-east-1',
+      maxRetries: 100,
+    };
+
     /** Get the Accounts from the Organization we want to operate in */
     try {
       /**
@@ -266,6 +279,25 @@ export const orgtomate = async (
         throw new Error(`Invalid Target Identifier: ${targetId}`);
       }
 
+      /**
+       * If we have an orgMgmtAccountId, we need some info for callbacks to use
+       * for processing the callbacks in the management account instead
+       */
+      const mgmtAccount = new ProcessableAccount();
+
+      if (orgMgmtAccountId) {
+        mgmtAccount.Id = orgMgmtAccountId || '';
+        mgmtAccount.nodetype = targetNodetype;
+        mgmtAccount.RoleToAssume = {
+          RoleArn: `arn:aws:iam::${mgmtAccount.Id}:role/${roleName}`,
+          RoleSessionName: roleSessionName,
+          ...(roleExternalId && { ExternalId: roleExternalId }),
+          ...(roleDurationSeconds && { DurationSeconds: roleDurationSeconds }),
+        };
+      }
+
+      let accountList: Array<any> = [];
+
       if (targetNodetype === 'ROOT' && recursive) {
         /**
          * If we want every account in the Organization, don't waste
@@ -275,28 +307,17 @@ export const orgtomate = async (
          * and add them or our Array of accounts to process
          */
 
-        let accountList: Array<any> = [];
-
-        const orgParams = {
-          region: 'us-east-1',
-          maxRetries: 100,
-        };
-
         if (orgMgmtAccountId) {
-          const listAccountsCallback = async (credentials: RoleCredentials, awsAccount: ProcessableAccount) => {
-            const listAccountsClientParams = { credentials, ...orgParams };
-            return getAwsResults('Organizations', 'listAccounts', listAccountsClientParams, {}, 'Accounts').catch(
-              (error) => {
-                throw error;
-              },
-            );
+          mgmtAccount.AsyncCallback = async (credentials: RoleCredentials, awsAccount: ProcessableAccount) => {
+            const clientParams = { credentials, ...orgParams };
+            return getAwsResults('Organizations', 'listAccounts', clientParams, {}, 'Accounts').catch((error) => {
+              throw error;
+            });
           };
 
-          const orgResult = await orgtomate(listAccountsCallback, roleInfo, orgMgmtAccountId).catch((error) => {
+          accountList = await processAccount(mgmtAccount).catch((error) => {
             throw error;
           });
-
-          [accountList] = orgResult;
         } else {
           accountList = await getAwsResults('Organizations', 'listAccounts', orgParams, {}, 'Accounts').catch(
             (error: unknown) => {
@@ -327,15 +348,31 @@ export const orgtomate = async (
         targetData.Id = targetId || 'Root';
         targetData.nodetype = targetNodetype;
 
-        /**
-         * Passing `true` to skipSuspended as Orgtomate is functionally useless
-         * against SUSPENDED AWS Accounts where the IAM Role cannot be assumed
-         */
-        const awsOrgNode = await AwsOrgNode.init(targetData, true).catch((error: unknown) => {
-          throw error;
-        });
+        if (orgMgmtAccountId) {
+          mgmtAccount.AsyncCallback = async (credentials: RoleCredentials, awsAccount: ProcessableAccount) => {
+            const clientParams = { credentials, ...orgParams };
 
-        awsOrgNodesToProcess = awsOrgNode.getAccounts(recursive);
+            /**
+             * Passing `true` to skipSuspended as Orgtomate is functionally useless
+             * against SUSPENDED AWS Accounts where the IAM Role cannot be assumed
+             */
+            const awsOrgNode = await AwsOrgNode.init(targetData, true, [], clientParams).catch((error: unknown) => {
+              throw error;
+            });
+
+            return awsOrgNode.getAccounts(recursive);
+          };
+
+          awsOrgNodesToProcess = await processAccount(mgmtAccount).catch((error) => {
+            throw error;
+          });
+        } else {
+          const awsOrgNode = await AwsOrgNode.init(targetData, recursive).catch((error: unknown) => {
+            throw error;
+          });
+
+          awsOrgNodesToProcess = awsOrgNode.getAccounts(recursive);
+        }
       }
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -357,26 +394,17 @@ export const orgtomate = async (
        * Set up our processable accounts with their RoleToAssume and AsyncCallback properties
        */
 
-      const roleName = roleInfo.name;
-      const roleSessionName = roleInfo.sessionName || 'orgtomate';
-      const roleExternalId = roleInfo.externalId || undefined;
-      const roleDurationSeconds = roleInfo.durationSeconds || 3600;
-
       awsOrgNodesToProcess.forEach((awsOrgNode: AwsOrgNode) => {
         const processableAccount: ProcessableAccount = Object.assign(awsOrgNode, {
           AsyncCallback: asyncCallback,
           RoleToAssume: {
             RoleArn: `arn:aws:iam::${awsOrgNode.Id}:role/${roleName}`,
             RoleSessionName: roleSessionName,
+            ...(roleExternalId && { ExternalId: roleExternalId }),
+            ...(roleDurationSeconds && { DurationSeconds: roleDurationSeconds }),
           },
         });
 
-        if (roleExternalId) {
-          processableAccount.RoleToAssume.ExternalId = roleExternalId;
-        }
-        if (roleDurationSeconds) {
-          processableAccount.RoleToAssume.DurationSeconds = roleDurationSeconds;
-        }
         processableAccountsToProcess.push(processableAccount);
       });
 

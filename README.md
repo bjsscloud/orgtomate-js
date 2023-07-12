@@ -44,6 +44,7 @@ org <service> <operation> \
   [-a|--operation-args <key>=<value> ...] \
   [-j|--args-as-json|--no-j|--no-args-as-json] \
   [-o|--orgtomate <target>] \
+  [-m|--management-account <AWS Account ID>] \
   [-y|--recurse|--no-y|--no-recurse] \
   [-r|--regions <region> ...] \
   [-k|--result-key <key>] \

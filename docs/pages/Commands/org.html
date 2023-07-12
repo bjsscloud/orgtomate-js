@@ -80,7 +80,7 @@
 				<a href="#synopsis" id="synopsis" style="color: inherit; text-decoration: none;">
 					<h2>SYNOPSIS</h2>
 				</a>
-				<p><code>org &lt;service&gt; &lt;operation&gt; [-c|--constructor-args &lt;key&gt;=&lt;value&gt; ...] [-a|--operation-args &lt;key&gt;=&lt;value&gt; ...] [-j|--args-as-json|--no-j|--no-args-as-json] [-o|--orgtomate &lt;target&gt;] [-y|--recurse|--no-y|--no-recurse] [-r|--regions &lt;region&gt; ...] [-k|--result-key &lt;key&gt;] [-f|--format [flat|full|regions|accountids|accountnames]] [-n|--role-name &lt;role-name&gt;] [-e|--external-id &lt;external-id&gt;] [-s|--duration-seconds &lt;seconds&gt;] [-x|--session-name &lt;session-name&gt;] [-d|--debug|--no-d|--no-debug]</code></p>
+				<p><code>org &lt;service&gt; &lt;operation&gt; [-c|--constructor-args &lt;key&gt;=&lt;value&gt; ...] [-a|--operation-args &lt;key&gt;=&lt;value&gt; ...] [-j|--args-as-json|--no-j|--no-args-as-json] [-o|--orgtomate &lt;target&gt;] [-m|--management-account &lt;AWS Account ID&gt;] [-y|--recurse|--no-y|--no-recurse] [-r|--regions &lt;region&gt; ...] [-k|--result-key &lt;key&gt;] [-f|--format [flat|full|regions|accountids|accountnames]] [-n|--role-name &lt;role-name&gt;] [-e|--external-id &lt;external-id&gt;] [-s|--duration-seconds &lt;seconds&gt;] [-x|--session-name &lt;session-name&gt;] [-d|--debug|--no-d|--no-debug]</code></p>
 				<a href="#description" id="description" style="color: inherit; text-decoration: none;">
 					<h2>DESCRIPTION</h2>
 				</a>
@@ -118,6 +118,9 @@
 				<p><code>-j</code>, <code>--args-as-json</code>, <code>--no-j</code>, <code>--no-args-as-json</code><br>    <em>Boolean :: Default: false</em><br>    Whether to parse the values in <code>-c|--constructor-args</code> and <code>-a|--operation-args</code> arguments as JSON data using <code>JSON.parse()</code></p>
 				<p><code>-o</code>, <code>--orgtomate</code><br>    <em>String :: Optional</em><br>    The ID of a node in an AWS Organization, or &#39;Root&#39; to anonymously reference the Root of the Organization.
 				Options: &#39;Root&#39; | /^r-[a-z0-9]{4}$/ | /^ou-[a-z0-9]+-[a-z0-9]+$/ | /^[0-9]{12}$/</p>
+				<p><code>-m</code>, <code>--management-account</code>
+					<em>String :: Optional</em>
+				The ID of an AWS Account to use as a substitute for running the Organizations commands necessary for determining which accounts can/should be targeted by Orgtomate. Account must allow the credentials Orgtomate operates with to assume the defined IAM Role (-n parameter) in the management account, and the role in the management account must have Organizations read permissions</p>
 				<p><code>-y</code>, <code>--recurse</code>, <code>--no-y</code>, <code>--no-recurse</code><br>    <em>Boolean :: Default: true</em><br>    When specifying a Root or an Organizational Unit target, whether to gather all accounts recursively below the target, or only accounts that are immediate children of the target</p>
 				<p><code>-r</code>, <code>--regions</code><br>    <em>Array` :: Default: us-east-1</em><br>        The AWS Regions in which to execute the API call in parallel for every account being targeted, whether just locally or with Orgtomate</p>
 				<p><code>-k</code>, <code>--result-key</code><br>    <em>String :: Optional</em><br>        The resultKey to pass to getAwsResults that will reduce the Operation output to only the information required for ease of visualisation and parsing</p>
