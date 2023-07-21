@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "aws-sdk": "latest",
-    "npm": "8.6.0",
-    "yargs": "17.4.0"
+    "npm": "8.19.4",
+    "yargs": "17.7.2"
   },
   "description": "AWS Organizations Automation Libraries & CLI",
   "devDependencies": {
@@ -134,7 +134,7 @@
     "nibble-one": "eslint-nibble --cache",
     "prettier": "prettier 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
-    "test": "./tests/test.sh",
+    "test": "./test/test.sh",
     "tsc": "tsc"
   },
   "types": "./dist/index.d.ts",
