@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "aws-sdk": "latest",
-    "npm": "8.6.0",
     "yargs": "17.4.0"
   },
   "description": "AWS Organizations Automation Libraries & CLI",
@@ -138,5 +137,5 @@
     "tsc": "tsc"
   },
   "types": "./dist/index.d.ts",
-  "version": "1.2.0"
+  "version": "1.2.1"
 }

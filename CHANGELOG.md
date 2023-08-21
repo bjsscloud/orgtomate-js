@@ -1,5 +1,10 @@
 # Orgtomate Change Log
 
+## 1.2.1
+*Mon Aug 21 2023*
+
+ * Remove incorrect NPM dependency
+
 ## 1.2.0
 *Wed Jul 12 2023*
 
